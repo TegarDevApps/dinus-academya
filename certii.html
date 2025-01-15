@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="xl:p-10 lg:p-10 md:p-10 p-4">
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center gap-2">
+              <a href="/assignment.html"
+                id="closeBtn"
+                class="hover:bg-[#F99F0A] bg-white w-8 h-8 rounded-sm flex items-center justify-center p-4 transition-colors text-black hover:text-white border"
+              >
+                <span class="text-sm font-semibold"> ✕ </span>
+              </a>
+            </div>
+            <div class="flex items-center gap-2 bg-white px-3 py-1 rounded-sm border">
+              <span id="finalScore" class="font-semibold">0</span>
+              <img
+                src="/public/images/Fire.png"
+                alt="API Icon"
+                class="w-4 h-4 md:w-4 md:h-5 mt-0.5"
+              />
+            </div>
+        </div>
+        <div class="flex flex-col items-center relative">
+            <img src="/public/images/certi.png" alt="Certificate Image" id="certificateImage" class="w-full md:w-1/2 blur-sm">
+            <a 
+                id="downloadBtn"
+                class="absolute bottom-4 md:right-96 right-auto bg-black text-white px-4 py-2 rounded-lg cursor-pointer"
+                download="certificate.png"
+            >Download</a>
+        </div>
+        <div class="h-32 flex flex-col justify-center items-center text-center md:mt-14 mt-8">
+            <span class="text-3xl font-bold">Congrats Ariiq!</span>
+            <span class="text-sm text-black mt-4">You have completed the course "A Teacher's Guide to Tech Tools"</span>
+        </div>
+        <div class="flex justify-center mb-12">
+            <div class="relative w-48 h-48 flex items-center justify-center">
+                <div class="w-48 h-48 rounded-full border-[16px] border-orange-500 flex items-center justify-center">
+                    <span id="percentageScore" class="text-4xl font-bold">100%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-3 gap-4 max-w-xl mx-auto mb-8">
+            <div class="text-center">
+                <p class="text-gray-600 text-sm">Total Question</p>
+                <span class="text-2xl font-bold">10</span>
+                <span class="text-gray-500 text-sm ml-1">Quiz</span>
+            </div>
+            <div class="text-center border-x border-gray-200">
+                <p class="text-gray-600 text-sm">Time Spent</p>
+                <span class="text-2xl font-bold" id="timeSpent">09 Min 15 Sec</span>
+            </div>
+            <div class="text-center">
+                <p class="text-gray-600 text-sm">Total Point</p>
+                <span id="totalPoint" class="text-2xl font-bold text-orange-500">1000</span>
+                <span class="text-gray-500 text-sm ml-1">/ 1000</span>
+            </div>
+        </div>        
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const score = parseInt(localStorage.getItem("quizScore")) || 0;
+    const finalScoreElement = document.getElementById("finalScore");
+    const percentageScoreElement = document.getElementById("percentageScore");
+    const totalPointElement = document.getElementById("totalPoint");
+    const timeSpentElement = document.getElementById("timeSpent");
+
+    // Ambil nilai sisa waktu dari localStorage
+    let timeLeft = parseInt(localStorage.getItem("timeLeft")) || 0;
+    const initialTime = 9 * 60 + 15; // Total waktu awal dalam detik
+
+    // Hitung waktu yang dihabiskan
+    const timeSpent = initialTime - timeLeft;
+    const minutesSpent = Math.floor(timeSpent / 60);
+    const secondsSpent = timeSpent % 60;
+    timeSpentElement.textContent = `${minutesSpent} Min ${secondsSpent} Sec`;
+
+    finalScoreElement.textContent = score;
+
+    const percentage = (score / 10) * 10;
+    percentageScoreElement.textContent = `${percentage}%`;
+
+    totalPointElement.textContent = `${score}`;
+    totalPointElement.nextElementSibling.textContent = "/ 100";
+
+    const downloadBtn = document.getElementById("downloadBtn");
+    const certificateImage = document.getElementById("certificateImage");
+
+    downloadBtn.addEventListener("click", () => {
+        const imageUrl = certificateImage.src;
+        downloadBtn.setAttribute("href", imageUrl);
+    });
+
+    document.getElementById("closeBtn").addEventListener("click", () => {
+        window.close();
+    });
+});
+
+</script>
+</html>

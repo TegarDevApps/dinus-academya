@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-50 min-h-screen p-4">
+    <div class="w-full">
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-8">
+        <div class="flex items-center gap-2">
+          <button
+            id="closeBtn"
+            class="hover:bg-[#F99F0A] bg-white w-8 h-8 rounded-sm flex items-center justify-center p-4 transition-colors text-black hover:text-white border"
+          >
+            <span class="text-sm font-semibold"> ✕ </span>
+          </button>
+          <div class="flex items-center gap-2 px-3 py-1 rounded-full text-sm">
+            <div class="flex items-center gap-2">
+              <img
+                src="/public/images/ClockCountdown.png"
+                alt=""
+                class="w-3 h-3 md:w-5 md:h-5 mt-0.5"
+              />
+              <span class="text-black">Time left</span>
+            </div>
+            <div
+              class="bg-black w-20 h-6 flex items-center justify-center rounded-sm"
+            >
+              <span id="timer" class="text-white gap-2"> 00:09:15 </span>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 bg-white px-3 py-1 rounded-sm">
+          <span id="score" class="font-semibold">0</span>
+          <img
+            src="/public/images/Fire.png"
+            alt=""
+            class="w-4 h-4 md:w-4 md:h-5 mt-0.5"
+          />
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 mb-4 justify-center md:mt-28 mt-auto">
+        <span
+          class="rounded-sm w-5 h-5 flex items-center justify-center text-sm bg-black text-white"
+          >?</span
+        >
+        <span class="text-sm text-black" id="questionNumber"
+          >Question 1 of 10</span
+        >
+      </div>
+      <div class="flex items-center gap-2 justify-center">
+        <span class="text-2xl font-bold" id="question"></span>
+      </div>
+      <span class="text-gray-400 text-sm flex items-center gap-2 justify-center"
+        >Select the correct answer</span
+      >
+      <div class="flex gap-2 justify-center mt-4 w-full">
+        <form id="quizForm" class="space-y-4 md:w-1/2 w-full">
+          <div class="space-y-4">
+            <label
+              class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors w-full"
+              for="option"
+            >
+              <input
+                type="radio"
+                name="answer"
+                value="1"
+                class="mr-3"
+                id="option"
+                class="peer hidden"
+              />
+              <span>Option 1</span>
+            </label>
+          
+            <label
+              class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors w-full"
+              for="option1"
+            >
+              <input
+                type="radio"
+                name="answer"
+                value="2"
+                class="mr-3"
+                id="option1"
+                class="peer hidden"
+              />
+              <span>Option 2</span>
+            </label>
+          
+            <label
+              class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors w-full"
+              for="option2"
+            >
+              <input
+                type="radio"
+                name="answer"
+                value="3"
+                class="mr-3"
+                id="option2"
+                class="peer hidden"
+              />
+              <span>Option 3</span>
+            </label>
+          
+            <label
+              class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors w-full"
+              for="option3"
+            >
+              <input
+                type="radio"
+                name="answer"
+                value="4"
+                class="mr-3"
+                id="option3"
+                class="peer hidden"
+              />
+              <span>Option 4</span>
+            </label>
+          </div>
+          
+          <div class="flex justify-end mt-8">
+            <button
+              type="button"
+              id="nextBtn"
+              class="px-6 py-2 bg-[#F99F0A] text-white rounded hover:bg-orange-600"
+            >
+              Continue
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+   <script src="quizz.js"></script>
+  </body>
+</html>

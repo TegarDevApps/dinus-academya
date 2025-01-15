@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="dist/css/style.css" />
+    <title>Academya</title>
+    <link
+      rel="icon"
+      href="public/images/logo-sidebar.png"
+      type="image/x-icon"
+    />
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+      .no-scrollbar {
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .no-scrollbar::-webkit-scrollbar {
+        display: none; /* WebKit (Chrome, Safari) */
+      }
+      #assignments .card {
+          transition: all 0.3s ease-in-out;
+      }
+      #assignments .card-header span:last-child {
+          cursor: pointer;
+      }
+
+      .filter-btn.active {
+        border-bottom: 2px solid black;
+        opacity: 1;
+      }
+      #popup {
+        backdrop-filter: blur(5px);
+      }
+
+      .truncate-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 1; /* Jumlah baris teks yang ditampilkan */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+      }
+
+
+    </style>
+  </head>
+  <body class="text-gray-800">
+    <!-- start: Sidebar -->
+    <div class="fixed left-0 top-0 w-64 h-full bg-[#0D172A] p-4 z-50 sidebar-menu transition-transform">
+      <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
+        <img src="/public/images/logo-sidebar.png" alt="" />
+        <span class="text-lg font-bold text-white ml-3">Dashboard</span>
+      </a>
+      <ul class="mt-4">
+        <li class="mb-1 group ">
+          <a href="/overview-guru.html" data-target="overview" class="menu-link flex items-center py-2 px-4 text-gray-300">
+            <i class="ri-function-line mr-3 text-lg"></i>
+            <span class="text-sm">Overview</span>
+          </a>
+        </li>
+        <li class="mb-1 group">
+          <a href="/course-guru.html" data-target="courses" class="menu-link flex items-center py-2 px-4 text-gray-300">
+            <i class="ri-macbook-line mr-3 text-lg"></i>
+            <span class="text-sm">Courses</span>
+          </a>
+        </li>
+        <li class="mb-1 group">
+          <a href="/assignment-guru.html" data-target="assignments" class="menu-link flex items-center py-2 px-4 text-[#F99F0A]">
+            <i class="ri-task-line mr-3 text-lg text-[#F99F0A]"></i>
+            <span class="text-sm">Assessment</span>
+          </a>
+        </li>
+        <li class="mb-1 group">
+          <a href="/progress-guru.html" data-target="progress" class="menu-link flex items-center py-2 px-4 text-gray-300">
+            <i class="ri-hourglass-fill mr-3 text-lg"></i>
+            <span class="text-sm">Progress</span>
+          </a>
+        </li>
+        <li class="mb-1 group">
+          <a href="/community-guru.html" data-target="community" class="menu-link flex items-center py-2 px-4 text-gray-300 ">
+            <i class="ri-chat-4-line mr-3 text-lg"></i>
+            <span class="text-sm">Community</span>
+          </a>
+        </li>
+        <li class="mb-1 group">
+          <a href="/index.html" data-target="community" class="menu-link flex items-center py-2 px-4 text-gray-300 ">
+            <i class="ri-door-open-line mr-3 text-lg"></i>
+            <span class="text-sm">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
+    <!-- end: Sidebar -->
+
+    <!-- start: Main -->
+    <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-white min-h-screen transition-all main">
+      <!-- navbar -->
+      <div class="py-2 px-10 bg-white flex items-center h-[70px] border-b border-black border-opacity-10 sticky top-0 left-0 z-30">
+        <button type="button" class="text-lg text-gray-600 sidebar-toggle mr-3">
+          <i class="ri-menu-line"></i>
+        </button>
+        <ul class="justify-between w-full flex items-center">
+          <div class="information lg:flex xl:flex md:flex hidden items-center ">
+            <div class="images mr-3">
+              <img src="/public/images/icon-dashboard.png" alt="" />
+            </div>
+            <div class="email mr-2">
+              <div
+                class="border py-2 rounded border-[#EEEEEE] px-4 bg-[#FCFCFC] flex items-center gap-2"
+              >
+                <p class="text-sm opacity-50">tegay00@gmail.com</p>
+                <i class="ri-expand-up-down-fill"></i>
+              </div>
+            </div>
+            <i class="ri-arrow-right-double-line mr-2 text-lg"></i>
+            <div class="dashboard">
+              <div
+                class="border py-2 rounded border-[#EEEEEE] px-4 bg-[#FCFCFC] flex items-center gap-2"
+              >
+                <p class="text-sm text-[#F99F0A]">Dashboard</p>
+              </div>
+            </div>
+          </div>
+          <!-- dropdown search -->
+          <li class="dropdown lg:flex xl:flex md:flex hidden">
+            <div class="dropdown-toggle flex items-center space-x-2">
+              <!-- Input Search -->
+              <div class="relative flex items-center">
+                <span class="absolute left-3 text-gray-400">
+                  <i class="ri-search-line"></i>
+                </span>
+                <input
+                  type="text"
+                  placeholder="Search"
+                  class="pl-10 pr-32 py-2 w-full border rounded-md"
+                />
+              </div>
+            </div>
+            <div
+              class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100"
+            >
+              <div class="mt-3 mb-2">
+                <div class="text-[13px] font-medium text-gray-400 ml-4 mb-2">
+                  Recently
+                </div>
+                <ul class="max-h-64 overflow-y-auto">
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <div class="profile flex gap-3">
+            <!-- dropdown notification -->
+            <li class="dropdown lg:flex xl:flex md:flex hidden">
+              <button
+                type="button"
+                class="dropdown-toggle border border-[#EEEEEE] bg-[#FCFCFC] text-black py-2 px-3 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600"
+              >
+                <i class="ri-notification-3-line"></i>
+              </button>
+              <div
+                class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100"
+              >
+                <div
+                  class="flex items-center px-4 pt-4 border-b border-b-gray-100 notification-tab"
+                >
+                  <button
+                    type="button"
+                    data-tab="notification"
+                    data-tab-page="notifications"
+                    class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1 active"
+                  >
+                    Notifications
+                  </button>
+                  <button
+                    type="button"
+                    data-tab="notification"
+                    data-tab-page="messages"
+                    class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1"
+                  >
+                    Messages
+                  </button>
+                </div>
+                <div class="my-2">
+                  <ul
+                    class="max-h-64 overflow-y-auto"
+                    data-tab-for="notification"
+                    data-page="notifications"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/alfamart.png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            New order
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            from a user
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/alfamart.png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            New order
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            from a user
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/alfamart.png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            New order
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            from a user
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/alfamart.png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            New order
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            from a user
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/alfamart.png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            New order
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            from a user
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                  <ul
+                    class="max-h-64 overflow-y-auto hidden"
+                    data-tab-for="notification"
+                    data-page="messages"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/profile-chat (1).png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            John Doe
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            Hello there!
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/profile-chat (2).png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            John Doe
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            Hello there!
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/profile-chat (3).png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            John Doe
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            Hello there!
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/profile-chat (4).png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            John Doe
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            Hello there!
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/profile-chat (5).png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            John Doe
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            Hello there!
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <!-- dropdown profile -->
+            <li class="dropdown">
+              <div class="group flex gap-2">
+                <button type="button" class="dropdown-toggle flex items-center">
+                  <img
+                    src="/public/images/profile.png"
+                    alt=""
+                    class="w-8 h-8 rounded block object-cover align-middle"
+                  />
+                </button>
+                <div class="text">
+                  <h1 class="text-sm text-[#000000]">Ariiq Ammar</h1>
+                  <p class="text-xs opacity-70">@ariiqammar90</p>
+                </div>
+              </div>
+            </li>
+          </div>
+        </ul>
+      </div>
+
+      <!-- content -->
+      <div class="xl:p-10 lg:p-10 md:p-10 p-4">
+        <div class="navbar-content flex justify-between w-full mb-10">
+          <div class="name xl:mt-0 lg:mt-0 md:mt-0 mt-6">
+            <h1 class="text-black text-3xl font-medium mb-1">
+              Good Morning, Ariq
+            </h1>
+            <p class="text-sm text-black opacity-50">
+              This is your course dashboard
+            </p>
+          </div>
+          <div class="menu lg:block xl:block md:block hidden">
+            <ul class="flex space-x-8 text-base border-b border-gray-400 pb-1 border-opacity-50">
+              <li>
+                <a
+                  href="/overview-guru.html"
+                  data-target="overview"
+                  class="menu-link hover:text-[#F99F0A] hover:opacity-100 border-b-2 border-transparent hover:border-[#F99F0A] pb-1 transition"
+                >
+                  Overview
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/course-guru.html"
+                  data-target="courses"
+                  class="menu-link hover:text-[#F99F0A] hover:opacity-100 border-b-2 border-transparent hover:border-[#F99F0A] pb-1 transition"
+                >
+                  Courses
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/assignment-guru.html"
+                  data-target="assignments"
+                  class="menu-link hover:text-[#F99F0A] text-[#F99F0A] hover:opacity-100 border-b-2 border-b-[#F99F0A] border-transparent hover:border-[#F99F0A] pb-1 transition"
+                >
+                  Assessment
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/progress-guru.html"
+                  data-target="progress"
+                  class="menu-link hover:text-[#F99F0A]  hover:opacity-100 border-b-2 border-transparent hover:border-[#F99F0A] pb-1 transition"
+                >
+                  Progress
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/community-guru.html"
+                  data-target="community"
+                  class="menu-link hover:text-[#F99F0A] hover:opacity-100 border-b-2 border-transparent hover:border-[#F99F0A] pb-1 transition"
+                >
+                  Community
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ASSIGNMENTS -->
+        <div id="assignments" class="content grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+          <div class="left lg:col-span-2">
+            <div class="flex items-center gap-4">
+              <div class="link flex items-center gap-2 py-3 px-2 filter-btn active" data-filter="all">
+                <i class="ri-layout-grid-fill"></i>
+                <a href="#">All Status</a>
+              </div>
+              <div class="link flex items-center gap-2 opacity-50 py-3 px-2 filter-btn" data-filter="in-progress">
+                <i class="ri-hourglass-line"></i>
+                <a href="#">In Progress</a>
+              </div>
+              <div class="link flex items-center gap-2 opacity-50 py-3 px-2 filter-btn" data-filter="done">
+                <i class="ri-checkbox-circle-line"></i>
+                <a href="#">Done</a>
+              </div>              
+            </div>
+            <div class="xl:flex lg:flex md:flex w-full justify-between gap-4 mb-5 space-y-5 md:space-y-0 xl:space-y-0 lg:space-y-0 p-6 border border-gray-300 border-opacity-50 rounded-lg">
+              <!-- Stats Cards -->
+              <div class="group w-full space-y-3">
+                <div class="card-header w-full justify-between flex items-center px-4 py-2 rounded-md bg-[#FFF2F2]">
+                  <span>● Assignment1</span>
+                  <span>-</span>
+                </div>
+                <div class="card-group space-y-4">
+                  <div class="card card-not-started card-quiz bg-white rounded-lg p-4 border border-gray-300 border-opacity-50 w-full flex flex-col justify-between" style="display: block;">
+                    <!-- Icon di atas -->
+                    <div class="top flex justify-between">
+                      <div class="group-btn gap-2">
+                        <span class="px-2 py-2 border rounded-md text-sm">#Quiz</span>
+                      </div>
+                      <i class="ri-more-line"></i>
+                    </div>
+                    
+                    <!-- Text di bawah -->
+                    <div class="text mt-6">
+                      <span class="text-black font-medium mb-2">Understanding Digital Tools and Effective Integration</span>
+                      <p class="text-sm opacity-50 paragraf truncate-text mt-2">This quiz assesses your understanding of digital tools, strategies for enhancing student interaction, collaborative teaching, and managing digital classrooms. Answer the multiple-choice questions to complete the quiz.</p>
+                    </div>
+                    <div class="text flex items-center justify-between mt-5">
+                      <p class="text-sm opacity-50">10 questions</p>
+                      <p class="text-sm opacity-50">Multiple choice</p>
+                    </div>
+                    <hr class="w-full my-3">
+                    <span class="text-sm opacity-50">Not Started</span>
+                  </div>
+                  <div class="card card-in-progress card-assignment bg-white rounded-lg p-4 border border-gray-300 border-opacity-50 w-full flex flex-col justify-between" style="display: block;">
+                    <!-- Icon di atas -->
+                    <div class="top flex justify-between">
+                      <div class="group-btn gap-2">
+                        <span class="px-2 py-2 border rounded-md text-sm">#Assignment</span>
+                      </div>
+                      <i class="ri-more-line"></i>
+                    </div>
+                    
+                    <!-- Text di bawah -->
+                    <div class="text mt-6">
+                      <span class="text-black font-medium mb-2">Practical Application of Digital Tools in Teaching</span>
+                      <p class="text-sm opacity-50 paragraf truncate-text mt-2">Create a practical lesson plan or activity that demonstrates the integration of digital tools to enhance student engagement. You can choose any topic or subject you teach and describe how digital tools will be applied in the learning process</p>
+                    </div>
+                    <div class="text mt-5">
+                      <div class="group flex items-center justify-between">
+                        <p class="text-sm opacity-50">In Progress</p>
+                        <p class="text-sm">89%</p>
+                      </div>
+                      <div class="w-full bg-gray-200 rounded-full h-3 mt-3">
+                        <div
+                          class="bg-black h-3 rounded-full"
+                          style="width: 40%"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group w-full space-y-3">
+                <div class="card-header w-full justify-between flex items-center px-4 py-2 rounded-md bg-[#E8F3FF]">
+                  <span>● Assignment2</span>
+                  <span>-</span>
+                </div>
+                <div class="card-group space-y-4"> 
+                  <div class="card card-in-progress card-assignment bg-white rounded-lg p-4 border border-gray-300 border-opacity-50 w-full flex flex-col justify-between" style="display: block;">
+                    <!-- Icon di atas -->
+                    <div class="top flex justify-between">
+                      <div class="group-btn gap-2">
+                        <span class="px-2 py-2 border rounded-md text-sm">#Assignment</span>
+                      </div>
+                      <i class="ri-more-line"></i>
+                    </div>
+                    
+                    <!-- Text di bawah -->
+                    <div class="text mt-6">
+                      <span class="text-black font-medium mb-2">Practical Application of Digital Tools in Teaching</span>
+                      <p class="text-sm opacity-50 paragraf truncate-text mt-2">Create a practical lesson plan or activity that demonstrates the integration of digital tools to enhance student engagement. You can choose any topic or subject you teach and describe how digital tools will be applied in the learning process</p>
+                    </div>
+                    <div class="text mt-5">
+                      <div class="group flex items-center justify-between">
+                        <p class="text-sm opacity-50">In Progress</p>
+                        <p class="text-sm">89%</p>
+                      </div>
+                      <div class="w-full bg-gray-200 rounded-full h-3 mt-3">
+                        <div
+                          class="bg-black h-3 rounded-full"
+                          style="width: 40%"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group w-full space-y-3">
+                <div class="card-header w-full justify-between flex items-center px-4 py-2 rounded-md bg-[#E8FFDF]">
+                  <span>● Assignment3</span>
+                  <span>-</span>
+                </div>
+                <div class="card-group space-y-4">
+
+                  <div class="card card-done bg-white rounded-lg p-4 border border-gray-300 border-opacity-50 w-full flex flex-col justify-between" style="display: block;">
+                    <!-- Icon di atas -->
+                    <div class="top flex justify-between">
+                      <div class="group-btn gap-2">
+                        <span class="px-2 py-2 border rounded-md text-sm">#Quiz</span>
+                      </div>
+                      <i class="ri-more-line"></i>
+                    </div>
+                    
+                    <!-- Text di bawah -->
+                    <div class="text mt-6">
+                      <span class="text-black font-medium mb-2">Understanding Assessment Objectives</span>
+                      <p class="text-sm opacity-50 paragraf truncate-text mt-2">This quiz assesses your understanding of digital tools, strategies for enhancing student interaction, collaborative teaching, and managing digital classrooms. Answer the multiple-choice questions to complete the quiz.</p>
+                    </div>
+                    <hr class="w-full my-3">
+                    <div class="group justify-between flex items-center w-full">
+                      <span class="text-sm">Done</span>
+                      <i class="ri-checkbox-circle-fill text-[#F9AB28] text-xl"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="right">
+            <!-- Calendar -->
+            <div class="bg-white rounded-lg p-6 border border-gray-300 border-opacity-50 mb-5">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="font-medium">January 2024</h2>
+                <div class="flex gap-2">
+                  <button class="p-1 hover:bg-gray-100 rounded">
+                    <svg
+                      class="w-5 h-5 text-gray-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <button class="p-1 hover:bg-gray-100 rounded">
+                    <svg
+                      class="w-5 h-5 text-gray-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="grid grid-cols-7 gap-2 text-center mb-2">
+                <div class="text-gray-400 text-sm">Mon</div>
+                <div class="text-gray-400 text-sm">Tue</div>
+                <div class="text-gray-400 text-sm">Wed</div>
+                <div class="text-gray-400 text-sm">Thu</div>
+                <div class="text-gray-400 text-sm">Fri</div>
+                <div class="text-gray-400 text-sm">Sat</div>
+                <div class="text-gray-400 text-sm">Sun</div>
+              </div>
+              <div class="grid grid-cols-7 gap-2 text-sm">
+                <div class="p-2 text-center">15</div>
+                <div class="p-2 text-center">16</div>
+                <div class="p-2 text-center">17</div>
+                <div class="p-2 text-center">18</div>
+                <div
+                  class="p-2 text-center bg-orange-500 text-white rounded-full"
+                >
+                  19
+                </div>
+                <div class="p-2 text-center">20</div>
+                <div class="p-2 text-center">21</div>
+              </div>
+              <div class="mt-4">
+                <div class="flex justify-between items-center gap-3">
+                  <p class="text-sm text-black font-medium">January 19, 2024</p>
+                  <a href="#" id="add-new-journey" class="add-new-journey text-[#6C79FF] text-sm">+ Add New</a>
+                </div>
+                <div class="space-y-4 overflow-y-auto h-[200px] mt-3 no-scrollbar">
+                  <div class="card-journey border-2 rounded-lg p-4 mt-2">
+                    <div class="flex gap-2 justify-between mb-3">
+                      <div class="left">
+                        <div class="flex items-center gap-2">
+                          <span>Webinar Digital Tools</span>
+                          <span class="text-xs px-3 py-1 bg-[#04ABD6] bg-opacity-30 rounded-full">Starting</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <i class="ri-time-line text-black text-opacity-50"></i>
+                          <span class="text-sm text-black text-opacity-50">10.00 - 11.00 AM</span>
+                        </div>
+                      </div>
+                      <i class="ri-more-line"></i>
+                    </div>
+                    <div class="flex gap-2 justify-between">
+                      <div class="left">
+                        <div class="flex items-center gap-1">
+                          <div class="image">
+                            <img src="/public/images/group-people.png" alt="">
+                          </div>
+                          <span class="text-xs text-black text-opacity-50">+5 People</span>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <span class="border px-2 py-1 rounded-lg text-xs">60 Min</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-journey border-2 rounded-lg p-4 mt-2">
+                    <div class="flex gap-2 justify-between mb-3">
+                      <div class="left">
+                        <div class="flex items-center gap-2">
+                          <span>Pre-test Week 1</span>
+                          <span class="text-xs px-3 py-1 bg-[#04ABD6] bg-opacity-30 rounded-full">Starting</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <i class="ri-time-line text-black text-opacity-50"></i>
+                          <span class="text-sm text-black text-opacity-50">10.00 - 11.00 AM</span>
+                        </div>
+                      </div>
+                      <i class="ri-more-line"></i>
+                    </div>
+                    <div class="flex gap-2 justify-between">
+                      <div class="left">
+                        <div class="flex items-center gap-1">
+                          <div class="image">
+                            <img src="/public/images/group-people.png" alt="">
+                          </div>
+                          <span class="text-xs text-black text-opacity-50">+10 People</span>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <span class="border px-2 py-1 rounded-lg text-xs">60 Min</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-journey border-2 rounded-lg p-4 mt-2">
+                    <div class="flex gap-2 justify-between mb-3">
+                      <div class="left">
+                        <div class="flex items-center gap-2">
+                          <span>Webinar Digital Tools</span>
+                          <span class="text-xs px-3 py-1 bg-[#04ABD6] bg-opacity-30 rounded-full">Starting</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <i class="ri-time-line text-black text-opacity-50"></i>
+                          <span class="text-sm text-black text-opacity-50">10.00 - 11.00 AM</span>
+                        </div>
+                      </div>
+                      <i class="ri-more-line"></i>
+                    </div>
+                    <div class="flex gap-2 justify-between">
+                      <div class="left">
+                        <div class="flex items-center gap-1">
+                          <div class="image">
+                            <img src="/public/images/group-people.png" alt="">
+                          </div>
+                          <span class="text-xs text-black text-opacity-50">+5 People</span>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <span class="border px-2 py-1 rounded-lg text-xs">60 Min</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-journey border-2 rounded-lg p-4 mt-2">
+                    <div class="flex gap-2 justify-between mb-3">
+                      <div class="left">
+                        <div class="flex items-center gap-2">
+                          <span>Webinar Digital Tools</span>
+                          <span class="text-xs px-3 py-1 bg-[#04ABD6] bg-opacity-30 rounded-full">Starting</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <i class="ri-time-line text-black text-opacity-50"></i>
+                          <span class="text-sm text-black text-opacity-50">10.00 - 11.00 AM</span>
+                        </div>
+                      </div>
+                      <i class="ri-more-line"></i>
+                    </div>
+                    <div class="flex gap-2 justify-between">
+                      <div class="left">
+                        <div class="flex items-center gap-1">
+                          <div class="image">
+                            <img src="/public/images/group-people.png" alt="">
+                          </div>
+                          <span class="text-xs text-black text-opacity-50">+5 People</span>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <span class="border px-2 py-1 rounded-lg text-xs">60 Min</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="max-w-md mx-auto space-y-6">
+              <!-- Weekly Streak Section -->
+              <div class="bg-white rounded-lg p-6 border border-gray-200">
+                  <div class="flex items-center justify-between mb-6">
+                      <div class="flex items-center gap-2">
+                          <h2 class="text-gray-900 font-medium">Weekly streak</h2>
+                          <button class="text-gray-400 hover:text-gray-500">
+                              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                              </svg>
+                          </button>
+                      </div>
+                      <div class="flex items-center gap-2">
+                          <button class="px-3 py-1.5 text-sm text-gray-700 border rounded-lg flex items-center gap-2">
+                              June
+                              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+
+                  <div class="mb-6">
+                    <h3 class="text-xl font-semibold mb-4">1/4 Weeks</h3>
+                      <div class="grid grid-cols-7 gap-2">
+                          <div class="text-center">
+                              <div class="text-xs text-gray-500 mb-2">Mon</div>
+                              <div class="w-10 h-10 rounded-full bg-cover bg-center flex items-center justify-center mx-auto">
+                                <img src="/public/images/api (1).png" alt="">
+                              </div>
+                          </div>
+                          <div class="text-center">
+                              <div class="text-xs text-gray-500 mb-2">Tue</div>
+                              <div class="w-10 h-10 rounded-full bg-cover bg-center flex items-center justify-center mx-auto">
+                                <img src="/public/images/api (2).png" alt="">
+                              </div>
+                          </div>
+                          <div class="text-center">
+                              <div class="text-xs text-gray-500 mb-2">Wed</div>
+                              <div class="w-10 h-10 rounded-full bg-cover bg-center flex items-center justify-center mx-auto">
+                                <img src="/public/images/api (3).png" alt="">
+                              </div>
+                          </div>
+                          <div class="text-center">
+                              <div class="text-xs text-gray-500 mb-2">Thu</div>
+                              <div class="w-10 h-10 rounded-full  text-gray-500 flex items-center justify-center mx-auto">
+                                  17
+                              </div>
+                          </div>
+                          <div class="text-center">
+                              <div class="text-xs text-gray-500 mb-2">Fri</div>
+                              <div class="w-10 h-10 rounded-full  text-gray-500 flex items-center justify-center mx-auto">
+                                  18
+                              </div>
+                          </div>
+                          <div class="text-center">
+                              <div class="text-xs text-gray-500 mb-2">Sat</div>
+                              <div class="w-10 h-10 rounded-full  text-gray-500 flex items-center justify-center mx-auto">
+                                  19
+                              </div>
+                          </div>
+                          <div class="text-center">
+                              <div class="text-xs text-gray-500 mb-2">Sun</div>
+                              <div class="w-10 h-10 rounded-full  text-gray-500 flex items-center justify-center mx-auto">
+                                  20
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- global ranking -->
+                  <div class="flex items-center justify-between">
+                    <h2 class="text-gray-900 font-medium">Global Ranking</h2>
+                    <a href="#" class="text-blue-600 text-sm hover:underline">See all</a>
+                  </div>
+          
+                  <div class="mb-6">
+                      <div class="flex items-baseline gap-2">
+                          <h3 class="text-xl font-semibold">#9</h3>
+                          <span class="text-gray-500">of 20k learners</span>
+                      </div>
+                  </div>
+          
+                  <div class="space-y-4 overflow-y-auto h-[200px] mt-5 no-scrollbar">
+                      <!-- Ranking Item 1 -->
+                      <div class="flex items-center justify-between">
+                          <div class="flex items-center gap-3">
+                              <img src="/public/images/profile.png" alt="Profile" class="w-10 h-10 rounded-md">
+                              <div>
+                                  <div class="font-medium">Rasya Aditya</div>
+                                  <div class="text-sm text-gray-500">@rasyaaditya323</div>
+                              </div>
+                          </div>
+                          <div class="flex items-center gap-2">
+                              <span class="font-semibold">1,250</span>
+                              <i class="ri-trophy-fill text-[#F99F0A] text-lg"></i>
+                          </div>
+                      </div>
+                      <!-- Ranking Item 2 -->
+                      <div class="flex items-center justify-between">
+                          <div class="flex items-center gap-3">
+                              <img src="/public/images/profile.png" alt="Profile" class="w-10 h-10 rounded-md">
+                              <div>
+                                  <div class="font-medium">Tegar Wahyu</div>
+                                  <div class="text-sm text-gray-500">@tegaraaa21</div>
+                              </div>
+                          </div>
+                          <div class="flex items-center gap-2">
+                              <span class="font-semibold">1,200</span>
+                              <i class="ri-trophy-fill text-[#F99F0A] text-lg"></i>
+                          </div>
+                      </div>
+                      
+                      <!-- Ranking Item 2 -->
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <img src="/public/images/profile.png" alt="Profile" class="w-10 h-10 rounded-md">
+                            <div>
+                                <div class="font-medium">Tegar Wahyu</div>
+                                <div class="text-sm text-gray-500">@tegaraaa21</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold">1,200</span>
+                            <i class="ri-trophy-fill text-[#F99F0A] text-lg"></i>
+                        </div>
+                    </div>
+                    
+                      <!-- Ranking Item 2 -->
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <img src="/public/images/profile.png" alt="Profile" class="w-10 h-10 rounded-md">
+                            <div>
+                                <div class="font-medium">Tegar Wahyu</div>
+                                <div class="text-sm text-gray-500">@tegaraaa21</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold">1,200</span>
+                            <i class="ri-trophy-fill text-[#F99F0A] text-lg"></i>
+                        </div>
+                    </div>
+                    
+                      <!-- Ranking Item 2 -->
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <img src="/public/images/profile.png" alt="Profile" class="w-10 h-10 rounded-md">
+                            <div>
+                                <div class="font-medium">Tegar Wahyu</div>
+                                <div class="text-sm text-gray-500">@tegaraaa21</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold">1,200</span>
+                            <i class="ri-trophy-fill text-[#F99F0A] text-lg"></i>
+                        </div>
+                    </div>
+                    
+                      <!-- Ranking Item 2 -->
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <img src="/public/images/profile.png" alt="Profile" class="w-10 h-10 rounded-md">
+                            <div>
+                                <div class="font-medium">Tegar Wahyu</div>
+                                <div class="text-sm text-gray-500">@tegaraaa21</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold">1,200</span>
+                            <i class="ri-trophy-fill text-[#F99F0A] text-lg"></i>
+                        </div>
+                    </div>
+                    
+                      <!-- Ranking Item 2 -->
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <img src="/public/images/profile.png" alt="Profile" class="w-10 h-10 rounded-md">
+                            <div>
+                                <div class="font-medium">Tegar Wahyu</div>
+                                <div class="text-sm text-gray-500">@tegaraaa21</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold">1,200</span>
+                            <i class="ri-trophy-fill text-[#F99F0A] text-lg"></i>
+                        </div>
+                    </div>
+                    
+                      <!-- Ranking Item 2 -->
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <img src="/public/images/profile.png" alt="Profile" class="w-10 h-10 rounded-md">
+                            <div>
+                                <div class="font-medium">Tegar Wahyu</div>
+                                <div class="text-sm text-gray-500">@tegaraaa21</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold">1,200</span>
+                            <i class="ri-trophy-fill text-[#F99F0A] text-lg"></i>
+                        </div>
+                    </div>
+                    
+                      <!-- Ranking Item 2 -->
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <img src="/public/images/profile.png" alt="Profile" class="w-10 h-10 rounded-md">
+                            <div>
+                                <div class="font-medium">Tegar Wahyu</div>
+                                <div class="text-sm text-gray-500">@tegaraaa21</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold">1,200</span>
+                            <i class="ri-trophy-fill text-[#F99F0A] text-lg"></i>
+                        </div>
+                    </div>
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- POPUP JOURNEY -->
+        <div id="journey-popup" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center">
+          <div class="bg-white rounded-lg p-6 w-11/12 md:w-1/2 lg:w-1/3 space-y-4 max-h-[650px]">
+            <div>
+              <input type="text" id="journey-title" class="w-fullpx-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-2xl" placeholder="Add Title" />
+            </div>
+            <form id="journey-form" class="space-y-4">
+              <!-- Row 1: Date and Time, Duration -->
+              <div class="flex items-center gap-3 w-full">
+                <input 
+                  type="datetime-local" 
+                  id="journey-datetime" 
+                  class="w-full border border-gray-300 rounded-lg px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                  placeholder="Date and Time" 
+                />
+                <input 
+                  type="number" 
+                  id="journey-duration" 
+                  class="w-full border border-gray-300 rounded-lg px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                  placeholder="Duration (in minutes)" 
+                />
+              </div>
+            
+              <!-- Row 2: Your Activity, Choose File -->
+              <div class="flex items-center gap-3 w-full">
+                <!-- Dropdown for Your Activity -->
+                <select 
+                  id="journey-activity" 
+                  class="w-full border border-gray-300 rounded-lg px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  <option value="" disabled selected>Your Activity</option>
+                  <option value="workout">Workout</option>
+                  <option value="study">Study</option>
+                  <option value="meeting">Meeting</option>
+                  <option value="leisure">Leisure</option>
+                </select>
+            
+                <!-- File Input -->
+                <label class="w-full border border-gray-300 rounded-lg px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500 flex items-center justify-between cursor-pointer">
+                  <span>Choose File</span>
+                  <input 
+                    type="file" 
+                    id="journey-file" 
+                    class="hidden" 
+                  />
+                </label>
+              </div>
+
+              <!-- Search -->
+              <p class="mt-5 text-sm font-medium text-gray-700">My Team</p>
+              <div class="w-full relative">
+                <input 
+                  type="text" 
+                  id="search" 
+                  class="w-full border border-gray-300 rounded-lg pl-10 pr-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                  placeholder="Add member team"
+                />
+                <i class="ri-search-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+              </div>
+
+              <!-- profile team -->
+              <div class="group mt-5 space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="left flex items-center gap-3">
+                    <div class="images">
+                      <img src="/public/images/profile-popup.png" alt="">
+                    </div>
+                    <div class="text">
+                      <p class="text-base">Ariiq Ammar</p>
+                      <p class="text-sm opacity-50">@ariiqammar90</p>
+                    </div>
+                  </div>
+                  <div class="right">
+                    Editor >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="left flex items-center gap-3">
+                    <div class="images">
+                      <img src="/public/images/profile-popup.png" alt="">
+                    </div>
+                    <div class="text">
+                      <p class="text-base">Rasya Aditya</p>
+                      <p class="text-sm opacity-50">@rasyaadityaa</p>
+                    </div>
+                  </div>
+                  <div class="right">
+                    Viewer >
+                  </div>
+                </div>
+              </div>
+            </form>
+            
+            
+            <div class="flex justify-end gap-4">
+              <button id="popup-cancel" class="px-4 py-2 bg-gray-300 rounded-md">Cancel</button>
+              <a href="assignment-guru.html" type="submit" form="journey-form" class="px-4 py-2 bg-[#F99F0A] text-white rounded-md">Save</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- POPUP IN QUIZ -->
+        <div id="popup-quiz" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center">
+          <div class="bg-white rounded-lg p-6 w-11/12 md:w-1/2 lg:w-1/3 space-y-4 max-h-[650px]">
+            <img id="popup-image-quiz" src="" alt="Popup Image" class="w-full h-40 object-cover rounded-lg" />
+            <div class="text-group overflow-hidden overflow-y-auto no-scrollbar max-h-[350px]">
+              <h3 id="popup-title-quiz" class="text-xl font-semibold"></h3>
+              <p id="popup-text-quiz" class="text-sm opacity-70"></p>
+              <div class="group mt-5 flex gap-5">
+                <div class="left space-y-3">
+                  <div class="group flex items-center gap-3">
+                    <i class="ri-timer-line text-sm opacity-50"></i>
+                    <p class="text-sm opacity-50">Estimate Duration</p>
+                  </div>
+                  <div class="group flex items-center gap-3">
+                    <i class="ri-layout-grid-fill text-sm opacity-50"></i>
+                    <p class="text-sm opacity-50 py-1">Category</p>
+                  </div>
+                  <div class="group flex items-center gap-3">
+                    <i class="ri-profile-fill text-sm opacity-50"></i>
+                    <p class="text-sm opacity-50">Total Quiz</p>
+                  </div>
+                  <div class="group flex items-center gap-3">
+                    <i class="ri-edit-2-line text-sm opacity-50"></i>
+                    <p class="text-sm opacity-50">Type Quiz</p>
+                  </div>
+                </div> 
+                <div class="right space-y-3">
+                  <div class="group flex items-center gap-3">
+                    <p class="text-sm">10:00 Minutes</p>
+                  </div>
+                  <div class="group flex items-center gap-3">
+                    <p class="text-sm px-3 py-1 rounded-full bg-gray-200">Tools</p>
+                    <p class="text-sm px-3 py-1 rounded-full bg-gray-200">Trending</p>
+                  </div>
+                  <div class="group flex items-center gap-3">
+                    <p class="text-sm">10 Quiz</p>
+                  </div>
+                  <div class="group flex items-center gap-3">
+                    <p class="text-sm">Multiple Choice</p>
+                  </div>
+                </div>            
+              </div>
+            </div>
+            <div class="flex justify-end gap-4">
+              <button id="popup-close-quiz" class="px-4 py-2 bg-gray-300 rounded-md">Close</button>
+              <a href="/quiz.html" class="px-4 py-2 bg-blue-500 text-white rounded-md">Start</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- POPUP ASSIGNMENT -->
+        <div id="popup" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center">
+          <div class="bg-white rounded-lg p-6 w-11/12 md:w-1/2 lg:w-1/3 space-y-4 max-h-[650px]">
+            <img id="popup-image" src="" alt="Popup Image" class="w-full h-40 object-cover rounded-lg" />
+            <div class="text-group overflow-hidden overflow-y-auto no-scrollbar max-h-[350px]">
+              <h3 id="popup-title" class="text-xl font-semibold"></h3>
+              <p id="popup-text" class="text-sm opacity-70"></p>
+              <div class="group space-y-3">
+                <p class="text-sm opacity-50 mb-3">Assignment Instructions</p>
+                <div class="content w-full border border-gray-400 border-opacity-50 rounded-lg p-3">
+                  <p class="text-sm">1. Create a lesson plan that includes :</p>
+                  <div class="paraf space-y-2">
+                    <p class="text-sm"> a. Title/Topic of the lesson.</p>
+                    <p class="text-sm"> b. Digital tools to be used (e.g., LMS, online quiz tools, video conferencing apps, etc.).</p>
+                    <p class="text-sm"> c. Steps for using the digital tools in the learning process.</p>
+                    <p class="text-sm"> d. Expected learning objectives.</p>
+                  </div>
+                </div>
+                <div class="content w-full border border-gray-400 border-opacity-50 rounded-lg p-3">
+                  <p class="text-sm">2. Explain the benefits of the digital tools in your teaching scenario.</p>
+                </div>
+                <div class="content w-full border border-gray-400 border-opacity-50 rounded-lg p-3">
+                  <p class="text-sm">3. Save the document in PDF or DOC format.</p>
+                </div>
+                <div class="content w-full border border-gray-400 border-opacity-50 rounded-lg p-3">
+                  <p class="text-sm">3. Save the document in PDF or DOC format.</p>
+                </div>
+                <div class="content w-full border border-gray-400 border-opacity-50 rounded-lg p-3">
+                  <label for="file-upload" class="text-sm block mb-2 text-gray-700">4. Upload your document:</label>
+                  <input 
+                    type="file" 
+                    id="file-upload" 
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                    accept=".pdf,.doc,.docx" 
+                  />
+                </div>                
+              </div>
+            </div>
+            <div class="flex justify-end gap-4">
+              <button id="popup-close" class="px-4 py-2 bg-gray-300 rounded-md">Close</button>
+              <a href="/assignment-guru.html" class="px-4 py-2 bg-blue-500 text-white rounded-md">Save</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- end: Main -->
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dist/js/script.js"></script>
+
+    <script>
+      document.querySelectorAll(".checkbox").forEach((checkbox) => {
+        checkbox.addEventListener("change", function () {
+          const label = this.nextElementSibling;
+          if (this.checked) {
+            label.classList.remove("text-[#A8A8A8]");
+            label.classList.add("text-blue-600");
+          } else {
+            label.classList.remove("text-blue-600");
+            label.classList.add("text-[#A8A8A8]");
+          }
+        });
+      });
+    </script>
+
+    <script>
+      document.querySelectorAll('.card-header span:last-child').forEach(toggleButton => {
+        toggleButton.addEventListener('click', () => {
+            const cardHeader = toggleButton.closest('.card-header');
+            const cardsGroup = cardHeader.nextElementSibling;
+
+            // Toggle visibility of cards
+            if (cardsGroup.style.display === 'none') {
+                cardsGroup.style.display = 'block';
+                toggleButton.textContent = '-';
+            } else {
+                cardsGroup.style.display = 'none';
+                toggleButton.textContent = '+';
+            }
+
+            // Apply toggle to all sibling cards
+            let sibling = cardHeader.nextElementSibling;
+            while (sibling && sibling.classList.contains('card')) {
+                sibling.style.display = sibling.style.display === 'none' ? 'block' : 'none';
+                sibling = sibling.nextElementSibling;
+            }
+        });
+    });
+
+    </script>
+
+    <script>
+      function setActive(button) {
+          document.querySelectorAll('.box-filter').forEach(btn => {
+              btn.classList.remove('bg-black', 'text-white');
+              btn.classList.add('text-gray-500');
+          });
+          button.classList.add('bg-black', 'text-white');
+          button.classList.remove('text-gray-500');
+      }
+    </script>
+    <script>
+      
+      const options = {
+        colors: ["#1A56DB", "#FDBA8C"],
+        series: [
+          {
+            name: "Organic",
+            color: "#1A56DB",
+            data: [
+              { x: "Mon", y: 231 },
+              { x: "Tue", y: 122 },
+              { x: "Wed", y: 63 },
+              { x: "Thu", y: 421 },
+              { x: "Fri", y: 122 },
+              { x: "Sat", y: 323 },
+              { x: "Sun", y: 111 },
+            ],
+          },
+          {
+            name: "Social media",
+            color: "#FDBA8C",
+            data: [
+              { x: "Mon", y: 232 },
+              { x: "Tue", y: 113 },
+              { x: "Wed", y: 341 },
+              { x: "Thu", y: 224 },
+              { x: "Fri", y: 522 },
+              { x: "Sat", y: 411 },
+              { x: "Sun", y: 243 },
+            ],
+          },
+        ],
+        chart: {
+          type: "bar",
+          height: "320px",
+          fontFamily: "Inter, sans-serif",
+          toolbar: {
+            show: false,
+          },
+        },
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            columnWidth: "70%",
+            borderRadiusApplication: "end",
+            borderRadius: 8,
+          },
+        },
+        tooltip: {
+          shared: true,
+          intersect: false,
+          style: {
+            fontFamily: "Inter, sans-serif",
+          },
+        },
+        states: {
+          hover: {
+            filter: {
+              type: "darken",
+              value: 1,
+            },
+          },
+        },
+        stroke: {
+          show: true,
+          width: 0,
+          colors: ["transparent"],
+        },
+        grid: {
+          show: false,
+          strokeDashArray: 4,
+          padding: {
+            left: 2,
+            right: 2,
+            top: -14
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        legend: {
+          show: false,
+        },
+        xaxis: {
+          floating: false,
+          labels: {
+            show: true,
+            style: {
+              fontFamily: "Inter, sans-serif",
+              cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+            }
+          },
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+        },
+        yaxis: {
+          show: false,
+        },
+        fill: {
+          opacity: 1,
+        },
+      }
+
+      if(document.getElementById("column-chart") && typeof ApexCharts !== 'undefined') {
+        const chart = new ApexCharts(document.getElementById("column-chart"), options);
+        chart.render();
+      }
+
+    </script>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card');
+    
+        filterButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            // Hapus active dari semua tombol filter
+            filterButtons.forEach(btn => {
+              btn.classList.remove('active', 'border-b-2', 'border-black');
+              btn.classList.add('opacity-50');
+            });
+    
+            // Tambahkan active pada tombol yang diklik
+            button.classList.add('active', 'border-b-2', 'border-black');
+            button.classList.remove('opacity-50');
+    
+            const filter = button.getAttribute('data-filter');
+    
+            // Tampilkan atau sembunyikan card berdasarkan filter
+            cards.forEach(card => {
+              if (filter === 'all' || card.classList.contains(`card-${filter}`)) {
+                card.style.display = 'block';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          });
+        });
+      });
+    </script>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const popup = document.getElementById("popup");
+        const popupTitle = document.getElementById("popup-title");
+        const popupText = document.getElementById("popup-text");
+        const popupImage = document.getElementById("popup-image");
+        const popupClose = document.getElementById("popup-close");
+    
+        // Event listener untuk card
+        document.querySelectorAll(".card-assignment").forEach((card) => {
+          card.addEventListener("click", () => {
+            const title = card.querySelector("span.text-black").textContent;
+            const text = card.querySelector(".paragraf").textContent;
+    
+            popupTitle.textContent = title;
+            popupText.textContent = text;
+            popupImage.src = "/public/images/image-popup.png"; // Placeholder, ganti sesuai kebutuhan.
+    
+            popup.classList.remove("hidden");
+            popup.classList.add("flex");
+          });
+        });
+    
+        // Event listener untuk tombol close
+        popupClose.addEventListener("click", () => {
+          popup.classList.remove("flex");
+          popup.classList.add("hidden");
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const popup = document.getElementById("popup-quiz");
+        const popupTitle = document.getElementById("popup-title-quiz");
+        const popupText = document.getElementById("popup-text-quiz");
+        const popupImage = document.getElementById("popup-image-quiz");
+        const popupClose = document.getElementById("popup-close-quiz");
+    
+        // Event listener untuk card
+        document.querySelectorAll(".card-quiz").forEach((card) => {
+          card.addEventListener("click", () => {
+            const title = card.querySelector("span.text-black").textContent;
+            const text = card.querySelector(".paragraf").textContent;
+    
+            popupTitle.textContent = title;
+            popupText.textContent = text;
+            popupImage.src = "/public/images/image-popup.png"; // Placeholder, ganti sesuai kebutuhan.
+    
+            popup.classList.remove("hidden");
+            popup.classList.add("flex");
+          });
+        });
+    
+        // Event listener untuk tombol close
+        popupClose.addEventListener("click", () => {
+          popup.classList.remove("flex");
+          popup.classList.add("hidden");
+        });
+      });
+    </script>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const addNewJourneyButton = document.getElementById("add-new-journey");
+        const journeyPopup = document.getElementById("journey-popup");
+        const popupCancelButton = document.getElementById("popup-cancel");
+
+        // Show popup
+        addNewJourneyButton.addEventListener("click", (e) => {
+          e.preventDefault();
+          journeyPopup.classList.remove("hidden");
+        });
+
+        // Hide popup
+        popupCancelButton.addEventListener("click", () => {
+          journeyPopup.classList.add("hidden");
+        });
+
+        // Optional: Handle form submission
+        const journeyForm = document.getElementById("journey-form");
+        journeyForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const title = document.getElementById("journey-title").value;
+          const time = document.getElementById("journey-time").value;
+          const duration = document.getElementById("journey-duration").value;
+
+          if (title && time && duration) {
+            alert(`Journey Added: ${title}, Time: ${time}, Duration: ${duration} min`);
+            journeyPopup.classList.add("hidden");
+            journeyForm.reset();
+          } else {
+            alert("Please fill in all fields.");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

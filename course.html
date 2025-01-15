@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="dist/css/style.css" />
+    <title>Academya</title>
+    <link
+      rel="icon"
+      href="public/images/logo-sidebar.png"
+      type="image/x-icon"
+    />
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+      .no-scrollbar {
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .no-scrollbar::-webkit-scrollbar {
+        display: none; /* WebKit (Chrome, Safari) */
+      }
+      #assignments .card {
+          transition: all 0.3s ease-in-out;
+      }
+      #assignments .card-header span:last-child {
+          cursor: pointer;
+      }
+
+    </style>
+  </head>
+  <body class="text-gray-800">
+    <!-- start: Sidebar -->
+    <div class="fixed left-0 top-0 w-64 h-full bg-[#0D172A] p-4 z-50 sidebar-menu transition-transform">
+      <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
+        <img src="/public/images/logo-sidebar.png" alt="" />
+        <span class="text-lg font-bold text-white ml-3">Dashboard</span>
+      </a>
+      <ul class="mt-4">
+        <li class="mb-1 group ">
+          <a href="/overview.html" data-target="overview" class="menu-link flex items-center py-2 px-4 text-gray-300">
+            <i class="ri-function-line mr-3 text-lg"></i>
+            <span class="text-sm">Overview</span>
+          </a>
+        </li>
+        <li class="mb-1 group">
+          <a href="/course.html" data-target="courses" class="menu-link flex items-center py-2 px-4 text-[#F99F0A]">
+            <i class="ri-macbook-line mr-3 text-lg text-[#F99F0A]"></i>
+            <span class="text-sm">Courses</span>
+          </a>
+        </li>
+        <li class="mb-1 group">
+          <a href="/assignment.html" data-target="assignments" class="menu-link flex items-center py-2 px-4 text-gray-300">
+            <i class="ri-task-line mr-3 text-lg"></i>
+            <span class="text-sm">Assessment</span>
+          </a>
+        </li>
+        <li class="mb-1 group">
+          <a href="/progress.html" data-target="progress" class="menu-link flex items-center py-2 px-4 text-gray-300">
+            <i class="ri-hourglass-fill mr-3 text-lg"></i>
+            <span class="text-sm">Progress</span>
+          </a>
+        </li>
+        <li class="mb-1 group">
+          <a href="/community.html" data-target="community" class="menu-link flex items-center py-2 px-4 text-gray-300 ">
+            <i class="ri-chat-4-line mr-3 text-lg"></i>
+            <span class="text-sm">Community</span>
+          </a>
+        </li>
+        <li class="mb-1 group">
+          <a href="/index.html" data-target="community" class="menu-link flex items-center py-2 px-4 text-gray-300 ">
+            <i class="ri-door-open-line mr-3 text-lg"></i>
+            <span class="text-sm">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
+    <!-- end: Sidebar -->
+
+    <!-- start: Main -->
+    <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-white min-h-screen transition-all main">
+      <!-- navbar -->
+      <div class="py-2 px-10 bg-white flex items-center h-[70px] border-b border-black border-opacity-10 sticky top-0 left-0 z-30">
+        <button type="button" class="text-lg text-gray-600 sidebar-toggle mr-3">
+          <i class="ri-menu-line"></i>
+        </button>
+        <ul class="justify-between w-full flex items-center">
+          <div class="information lg:flex xl:flex md:flex hidden items-center ">
+            <div class="images mr-3">
+              <img src="/public/images/icon-dashboard.png" alt="" />
+            </div>
+            <div class="email mr-2">
+              <div
+                class="border py-2 rounded border-[#EEEEEE] px-4 bg-[#FCFCFC] flex items-center gap-2"
+              >
+                <p class="text-sm opacity-50">tegay00@gmail.com</p>
+                <i class="ri-expand-up-down-fill"></i>
+              </div>
+            </div>
+            <i class="ri-arrow-right-double-line mr-2 text-lg"></i>
+            <div class="dashboard">
+              <div
+                class="border py-2 rounded border-[#EEEEEE] px-4 bg-[#FCFCFC] flex items-center gap-2"
+              >
+                <p class="text-sm text-[#F99F0A]">Dashboard</p>
+              </div>
+            </div>
+          </div>
+          <!-- dropdown search -->
+          <li class="dropdown lg:flex xl:flex md:flex hidden">
+            <div class="dropdown-toggle flex items-center space-x-2">
+              <!-- Input Search -->
+              <div class="relative flex items-center">
+                <span class="absolute left-3 text-gray-400">
+                  <i class="ri-search-line"></i>
+                </span>
+                <input
+                  type="text"
+                  placeholder="Search"
+                  class="pl-10 pr-32 py-2 w-full border rounded-md"
+                />
+              </div>
+            </div>
+            <div
+              class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100"
+            >
+              <div class="mt-3 mb-2">
+                <div class="text-[13px] font-medium text-gray-400 ml-4 mb-2">
+                  Recently
+                </div>
+                <ul class="max-h-64 overflow-y-auto">
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                    >
+                      <img
+                        src="/images/dashboard/alfamart.png"
+                        alt=""
+                        class="w-8 h-8 rounded block object-cover align-middle"
+                      />
+                      <div class="ml-2">
+                        <div
+                          class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                        >
+                          Alfamart Waralaba
+                        </div>
+                        <div class="text-[11px] text-gray-400">$345</div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <div class="profile flex gap-3">
+            <!-- dropdown notification -->
+            <li class="dropdown lg:flex xl:flex md:flex hidden">
+              <button
+                type="button"
+                class="dropdown-toggle border border-[#EEEEEE] bg-[#FCFCFC] text-black py-2 px-3 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600"
+              >
+                <i class="ri-notification-3-line"></i>
+              </button>
+              <div
+                class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100"
+              >
+                <div
+                  class="flex items-center px-4 pt-4 border-b border-b-gray-100 notification-tab"
+                >
+                  <button
+                    type="button"
+                    data-tab="notification"
+                    data-tab-page="notifications"
+                    class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1 active"
+                  >
+                    Notifications
+                  </button>
+                  <button
+                    type="button"
+                    data-tab="notification"
+                    data-tab-page="messages"
+                    class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1"
+                  >
+                    Messages
+                  </button>
+                </div>
+                <div class="my-2">
+                  <ul
+                    class="max-h-64 overflow-y-auto"
+                    data-tab-for="notification"
+                    data-page="notifications"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/alfamart.png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            New order
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            from a user
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/alfamart.png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            New order
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            from a user
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/alfamart.png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            New order
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            from a user
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/alfamart.png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            New order
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            from a user
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/alfamart.png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            New order
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            from a user
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                  <ul
+                    class="max-h-64 overflow-y-auto hidden"
+                    data-tab-for="notification"
+                    data-page="messages"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/profile-chat (1).png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            John Doe
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            Hello there!
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/profile-chat (2).png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            John Doe
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            Hello there!
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/profile-chat (3).png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            John Doe
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            Hello there!
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/profile-chat (4).png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            John Doe
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            Hello there!
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="py-2 px-4 flex items-center hover:bg-gray-50 group"
+                      >
+                        <img
+                          src="/images/dashboard/profile-chat (5).png"
+                          alt=""
+                          class="w-8 h-8 rounded block object-cover align-middle"
+                        />
+                        <div class="ml-2">
+                          <div
+                            class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500"
+                          >
+                            John Doe
+                          </div>
+                          <div class="text-[11px] text-gray-400">
+                            Hello there!
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <!-- dropdown profile -->
+            <li class="dropdown">
+              <div class="group flex gap-2">
+                <button type="button" class="dropdown-toggle flex items-center">
+                  <img
+                    src="/public/images/profile.png"
+                    alt=""
+                    class="w-8 h-8 rounded block object-cover align-middle"
+                  />
+                </button>
+                <div class="text">
+                  <h1 class="text-sm text-[#000000]">Ariiq Ammar</h1>
+                  <p class="text-xs opacity-70">@ariiqammar90</p>
+                </div>
+              </div>
+            </li>
+          </div>
+        </ul>
+      </div>
+
+      <!-- content -->
+      <div class="xl:p-10 lg:p-10 md:p-10 p-4">
+        <div class="navbar-content flex justify-between w-full mb-10">
+          <div class="name xl:mt-0 lg:mt-0 md:mt-0 mt-6">
+            <h1 class="text-black text-3xl font-medium mb-1">
+              Good Morning, Ariq
+            </h1>
+            <p class="text-sm text-black opacity-50">
+              This is your course dashboard
+            </p>
+          </div>
+          <div class="menu lg:block xl:block md:block hidden">
+            <ul class="flex space-x-8 text-base border-b border-gray-400 pb-1 border-opacity-50">
+              <li>
+                <a
+                  href="/overview.html"
+                  data-target="overview"
+                  class="menu-link hover:text-[#F99F0A] hover:opacity-100 border-b-2 border-transparent hover:border-[#F99F0A] pb-1 transition"
+                >
+                  Overview
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/course.html"
+                  data-target="courses"
+                  class="menu-link hover:text-[#F99F0A] text-[#F99F0A] hover:opacity-100 border-b-2 border-b-[#F99F0A] border-transparent hover:border-[#F99F0A] pb-1 transition"
+                >
+                  Courses
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/assignment.html"
+                  data-target="assignments"
+                  class="menu-link hover:text-[#F99F0A] hover:opacity-100 border-b-2 border-transparent hover:border-[#F99F0A] pb-1 transition"
+                >
+                  Assessment
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/progress.html"
+                  data-target="progress"
+                  class="menu-link hover:text-[#F99F0A]  hover:opacity-100 border-b-2 border-transparent hover:border-[#F99F0A] pb-1 transition"
+                >
+                  Progress
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/community.html"
+                  data-target="community"
+                  class="menu-link hover:text-[#F99F0A] hover:opacity-100 border-b-2 border-transparent hover:border-[#F99F0A] pb-1 transition"
+                >
+                  Community
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- COURSES -->
+        <div id="courses" class="content grid grid-cols-1 lg:grid-cols-1 gap-6 mb-6">
+          <section class="mb-12">
+            <h2 class="text-xl font-semibold mb-6">Continue Learning</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Course Card 1 -->
+                <div class="rounded-lg shadow flex gap-4 flex-col">
+                    <div class="bg-white rounded-lg shadow p-4 flex gap-4 flex-col w-full">
+                        <div class="flex flex-col md:flex-row gap-4 w-full">
+                            <img src="/public/images/continue-learning (1).png" alt="">
+                            <div class="flex-1">
+                                <div class="flex items-start mb-2">
+                                    <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                    <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                                </div>
+                                <h3 class="font-medium mb-2">Art and Design Basics: Drawing, Coloring, and Digital Art</h3>
+                                <div class="flex gap-2 mb-3">
+                                    <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Arts</span>
+                                    <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Creativity</span>
+                                </div>
+                                <div class="mb-3 flex items-center pt-10">
+                                    <div class="flex flex-col w-full md:w-[66%]">
+                                        <div class="flex justify-between text-sm mb-1 w-[60%]">
+                                            <span>Highest Score</span>
+                                            <span>89%</span>
+                                        </div>
+                                        <div class="h-2 bg-gray-200 rounded-full w-[60%]">
+                                            <div class="h-2 bg-black rounded-full w-[70%]"></div>
+                                        </div>
+                                    </div>
+                                    <button class="px-4 w-[30%] py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">
+                                        <a href="/video.html">Enroll Now</a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:mb-4 flex items-center justify-center p-4 md:p-2">
+                        <img src="public/images/book-image.png" alt="Image 1" class="w-4 h-4 md:w-5 md:h-5 mr-2" />
+                        <span class="text-gray-500 font-medium text-xs md:text-sm">
+                            Next you can dive into 
+                            <span class="text-[#F99F0A] font-medium">Advanced span techniques commonly used in Basic Learning ></span>
+                        </span>
+                    </div>
+                    
+                </div>
+        
+                <!-- Course Card 1 -->
+                <div class="rounded-lg shadow flex gap-4 flex-col">
+                  <div class="bg-white rounded-lg shadow p-4 flex gap-4 flex-col w-full">
+                      <div class="flex flex-col md:flex-row gap-4 w-full">
+                          <img src="/public/images/continue-learning (2).png" alt="">
+                          <div class="flex-1">
+                              <div class="flex items-start mb-2">
+                                  <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                  <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                              </div>
+                              <h3 class="font-medium mb-2">Exploring Environmental Science: Saving Our Planet</h3>
+                              <div class="flex gap-2 mb-3">
+                                  <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Science</span>
+                                  <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Environment</span>
+                              </div>
+                              <div class="mb-3 flex items-center pt-10">
+                                  <div class="flex flex-col w-full md:w-[66%]">
+                                      <div class="flex justify-between text-sm mb-1 w-[60%]">
+                                          <span>Highest Score</span>
+                                          <span>89%</span>
+                                      </div>
+                                      <div class="h-2 bg-gray-200 rounded-full w-[60%]">
+                                          <div class="h-2 bg-black rounded-full w-[70%]"></div>
+                                      </div>
+                                  </div>
+                                  <button class="px-4 w-[30%] py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">
+                                      <a href="/video.html">Enroll Now</a>
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="md:mb-4 flex items-center justify-center p-4 md:p-2">
+                      <img src="public/images/book-image.png" alt="Image 1" class="w-4 h-4 md:w-5 md:h-5 mr-2" />
+                      <span class="text-gray-500 font-medium text-xs md:text-sm">
+                          Next you can dive into 
+                          <span class="text-[#F99F0A] font-medium">Advanced span techniques commonly used in Basic Learning ></span>
+                      </span>
+                  </div>
+                  
+              </div>
+            </div>
+          </section>
+          <!-- All Material Section -->
+          <section>
+              <div class="flex justify-between items-center mb-6">
+                  <h2 class="text-xl font-semibold">
+                      All Material 
+                      <span class="text-sm text-black bg-gray-300 rounded-lg px-2 py-1 ml-2">
+                          28
+                      </span>
+                  </h2>
+              </div>    
+              <!-- Filters -->
+              <div class="flex flex-wrap gap-4 mb-6">
+                  <!-- Filter Buttons -->
+                  <div class="flex bg-white rounded-lg gap-1 w-full sm:w-auto">
+                    <button class="border box-filter px-4 py-2 rounded-lg hover:bg-black hover:text-white transition-colors" onclick="filterCards('all')">All Categories</button>
+                    <button class="border box-filter px-4 py-2 rounded-lg hover:bg-black hover:text-white transition-colors" onclick="filterCards('beginner')">Beginner Courses</button>
+                    <button class="border box-filter px-4 py-2 rounded-lg hover:bg-black hover:text-white transition-colors" onclick="filterCards('trending')">Trending Courses</button>
+                  </div>
+              
+                  <!-- Bagian pencarian -->
+                <div class="relative flex-1 max-w-md w-full ml-auto">
+                    <!-- Input Pencarian -->
+                    <input type="search" placeholder="Search..." class="w-full pl-10 pr-10 py-2 border rounded-lg">
+                    
+                    <!-- Ikon Pencarian -->
+                    <svg class="w-5 h-5 absolute left-3 top-2.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                
+                    <!-- Tombol Filter -->
+                    <button id="filterButton" class="absolute right-3 top-3">
+                    <svg class="w-5 h-5 text-gray-400 hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h18M6 8h12M10 12h4"/>
+                    </svg>
+                    </button>
+                
+                    <!-- Dropdown Filter -->
+                    <div id="filterDropdown" class="absolute right-0 mt-2 bg-white border rounded-lg shadow-lg w-full hidden">
+                    <ul class="py-2">
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">SD</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">SMP</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">SMA</li>
+                    </ul>
+                    </div>
+                </div>
+
+              </div>
+              
+      
+              <!-- Course Grid -->
+              <div id="course-grid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Course Card -->
+                    <div class="bg-white card-course rounded-lg shadow" data-category="beginner" data-category-class="SMA">
+                        <div class="images w-full bg-white rounded-lg p-2">
+                            <img src="/public/images/card-course-siswa (2).png" alt="" class="w-full h-auto">
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-start mb-2">
+                                <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                            </div>
+                            <h3 class="font-medium mb-2">Advanced Mathematics: Algebra and Trigonometry Demystified</h3>
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">SMA</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Mathematics</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Not Started</span>
+                                <a href="/video.html" class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white card-course rounded-lg shadow" data-category="trending" data-category-class="SMA">
+                        <div class="images w-full bg-white rounded-lg p-2">
+                            <img src="/public/images/card-course-siswa (5).png" alt="" class="w-full h-auto">
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-start mb-2">
+                                <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                            </div>
+                            <h3 class="font-medium mb-2">Science in Action: Exploring Physics, Chemistry, and Biology</h3>
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">SMA</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Science</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Experiments</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Not Started</span>
+                                <a href="/video.html" class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white card-course rounded-lg shadow" data-category="trending" data-category-class="SMA">
+                        <div class="images w-full bg-white rounded-lg p-2">
+                            <img src="/public/images/card-course-siswa (3).png" alt="" class="w-full h-auto">
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-start mb-2">
+                                <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                            </div>
+                            <h3 class="font-medium mb-2">College Prep English: Essay Writing and Presentation Skills</h3>
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">SMA</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Technology</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Digital Skills</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Not Started</span>
+                                <a href="/video.html" class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white card-course rounded-lg shadow" data-category="beginner" data-category-class="SMA">
+                        <div class="images w-full bg-white rounded-lg p-2">
+                            <img src="/public/images/card-course-siswa (4).png" alt="" class="w-full h-auto">
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-start mb-2">
+                                <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                            </div>
+                            <h3 class="font-medium mb-2">Exploring World History: Understanding Our Past</h3>
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">SMA</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Language</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Creativity</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Not Started</span>
+                                <a href="/video.html" class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white card-course rounded-lg shadow" data-category="beginner" data-category-class="SMA">
+                        <div class="images w-full bg-white rounded-lg p-2">
+                            <img src="/public/images/card-course-siswa (7).png" alt="" class="w-full h-auto">
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-start mb-2">
+                                <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                            </div>
+                            <h3 class="font-medium mb-2">Critical Thinking Through Philosophy and Debate</h3>
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">SMA</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Social Studies</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Geography</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Not Started</span>
+                                <a href="/video.html" class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white card-course rounded-lg shadow" data-category="trending" data-category-class="SMP">
+                        <div class="images w-full bg-white rounded-lg p-2">
+                            <img src="/public/images/card-course-siswa (2).png" alt="" class="w-full h-auto">
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-start mb-2">
+                                <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                            </div>
+                            <h3 class="font-medium mb-2">Mastering Basic Mathematics: Fun and Easy Approaches</h3>
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">SMP</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Mathematics</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Not Started</span>
+                                <a href="/video.html" class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white card-course rounded-lg shadow" data-category="trending" data-category-class="SMP">
+                        <div class="images w-full bg-white rounded-lg p-2">
+                            <img src="/public/images/card-course-siswa (5).png" alt="" class="w-full h-auto">
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-start mb-2">
+                                <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                            </div>
+                            <h3 class="font-medium mb-2">Exploring the Wonders of Science: Physics and Chemistry Basics</h3>
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">SMP</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Science</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Experiments</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Not Started</span>
+                                <a href="/video.html" class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white card-course rounded-lg shadow" data-category="beginner" data-category-class="SMP">
+                        <div class="images w-full bg-white rounded-lg p-2">
+                            <img src="/public/images/card-course-siswa (3).png" alt="" class="w-full h-auto">
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-start mb-2">
+                                <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                            </div>
+                            <h3 class="font-medium mb-2">Digital Literacy 101: Essential Skills for the Modern Era</h3>
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">SMP</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Technology</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Digital Skills</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Not Started</span>
+                                <a href="/video.html" class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white card-course rounded-lg shadow" data-category="beginner" data-category-class="SMP">
+                        <div class="images w-full bg-white rounded-lg p-2">
+                            <img src="/public/images/card-course-siswa (4).png" alt="" class="w-full h-auto">
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-start mb-2">
+                                <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                            </div>
+                            <h3 class="font-medium mb-2">Creative Writing for Beginners: Express Yourself Through Words</h3>
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">SMP</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Language</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Creativity</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Not Started</span>
+                                <a href="/video.html" class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white card-course rounded-lg shadow" data-category="trending" data-category-class="SD">
+                        <div class="images w-full bg-white rounded-lg p-2">
+                            <img src="/public/images/card-course-siswa (2).png" alt="" class="w-full h-auto">
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-start mb-2">
+                                <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                            </div>
+                            <h3 class="font-medium mb-2">Mastering Basic Mathematics: Fun and Easy Approaches</h3>
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">SD</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Mathematics</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Not Started</span>
+                                <a href="/video.html" class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white card-course rounded-lg shadow" data-category="trending" data-category-class="SD">
+                        <div class="images w-full bg-white rounded-lg p-2">
+                            <img src="/public/images/card-course-siswa (5).png" alt="" class="w-full h-auto">
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-start mb-2">
+                                <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                            </div>
+                            <h3 class="font-medium mb-2">Exploring the Wonders of Science: Physics and Chemistry Basics</h3>
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">SD</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Science</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Experiments</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Not Started</span>
+                                <a href="/video.html" class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white card-course rounded-lg shadow" data-category="beginner" data-category-class="SD">
+                        <div class="images w-full bg-white rounded-lg p-2">
+                            <img src="/public/images/card-course-siswa (3).png" alt="" class="w-full h-auto">
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-start mb-2">
+                                <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                            </div>
+                            <h3 class="font-medium mb-2">Digital Literacy 101: Essential Skills for the Modern Era</h3>
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">SD</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Technology</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Digital Skills</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Not Started</span>
+                                <a href="/video.html" class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white card-course rounded-lg shadow" data-category="beginner" data-category-class="SD">
+                        <div class="images w-full bg-white rounded-lg p-2">
+                            <img src="/public/images/card-course-siswa (4).png" alt="" class="w-full h-auto">
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-start mb-2">
+                                <img src="/public/images/book-image.png" alt="" class="w-4 h-4 md:w-5 md:h-5 mt-0.5">
+                                <span class="text-gray-400 text-xs px-2 py-1 rounded">Course</span>
+                            </div>
+                            <h3 class="font-medium mb-2">Creative Writing for Beginners: Express Yourself Through Words</h3>
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">SD</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Language</span>
+                                <span class="text-xs text-gray-600 bg-gray-100 px-2 py-2 rounded-full">Creativity</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Not Started</span>
+                                <a href="/video.html" class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-[#F99F0A] hover:text-white font-bold transition-colors">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+            </div>
+        </section>
+        </div>
+    
+        </div>
+
+      </div>
+    </main>
+    <!-- end: Main -->
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dist/js/script.js"></script>
+
+    <script>
+        // Menangani tombol filter
+        const filterButton = document.getElementById("filterButton");
+        const filterDropdown = document.getElementById("filterDropdown");
+
+        filterButton.addEventListener("click", () => {
+        // Toggle visibilitas dropdown
+        filterDropdown.classList.toggle("hidden");
+        });
+
+        // Menutup dropdown jika klik di luar
+        document.addEventListener("click", (e) => {
+        if (!filterButton.contains(e.target) && !filterDropdown.contains(e.target)) {
+            filterDropdown.classList.add("hidden");
+        }
+        });
+
+    </script>
+
+    <script>
+      document.querySelectorAll(".checkbox").forEach((checkbox) => {
+        checkbox.addEventListener("change", function () {
+          const label = this.nextElementSibling;
+          if (this.checked) {
+            label.classList.remove("text-[#A8A8A8]");
+            label.classList.add("text-blue-600");
+          } else {
+            label.classList.remove("text-blue-600");
+            label.classList.add("text-[#A8A8A8]");
+          }
+        });
+      });
+    </script>
+
+    <script>
+      function filterCards(filterCategory, filterClass) {
+        const cards = document.querySelectorAll('.card-course');
+        
+        cards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            const categoryClass = card.getAttribute('data-category-class');
+
+            // Filter logic
+            if (
+                (filterCategory === 'all' || category === filterCategory) &&
+                (!filterClass || categoryClass === filterClass)
+            ) {
+                card.style.display = 'block'; // Show the card
+            } else {
+                card.style.display = 'none'; // Hide the card
+            }
+        });
+    }
+
+    document.querySelectorAll('#filterDropdown li').forEach(item => {
+        item.addEventListener('click', () => {
+            const selectedClass = item.textContent; // Get the class from the dropdown
+            filterCards('all', selectedClass);
+        });
+    });
+
+
+    </script>
+  </body>
+</html>

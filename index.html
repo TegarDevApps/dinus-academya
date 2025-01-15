@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- FONTS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="dist/css/style.css" />
+    <title>Academya</title>
+    <link
+      rel="icon"
+      href="public/images/logo-sidebar.png"
+      type="image/x-icon"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+      .slider-card-container {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .dots {
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      a.active {
+        color: #f99f0a; /* Warna untuk elemen aktif */
+        font-weight: bold;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        background-color: #ddd;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .dot.active {
+        background-color: #0ba991;
+      }
+      .slider-card {
+        width: 100%;
+      }
+
+      .item {
+        flex-shrink: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden bg-[#F9FAFC]" data-barba="wrapper">
+    <nav class="F9FAFC fixed w-full z-20 top-0 start-0 bg-[#F9FAFC]">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="https://flowbite.com/"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <img src="/public/images/logo.png" class="h-8" alt="Flowbite Logo" />
+        </a>
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <a
+            href="/login.html"
+            type="button"
+            class="text-white bg-gradient-to-r to-[#F99F0A] from-[#EEC886] hover:to-[#EEC886] hover:from-[#F99F0A] focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-4 text-center"
+          >
+            Join Us
+          </a>
+          <button
+            data-collapse-toggle="navbar-sticky"
+            type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-black rounded-lg md:hidden"
+            aria-controls="navbar-sticky"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          id="navbar-sticky"
+          class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+        >
+          <ul
+            class="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 bg-[#F9FAFC]"
+          >
+            <li>
+              <a
+                href="#home"
+                class="block font-normal text-black rounded hover:text-[#F99F0A] active:text-[#F99F0A]"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about"
+                class="block font-normal text-black rounded hover:text-[#F99F0A] active:text-[#F99F0A]"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#program"
+                class="block font-normal text-black rounded hover:text-[#F99F0A] active:text-[#F99F0A]"
+                >Program</a
+              >
+            </li>
+            <li>
+              <a
+                href="#mentor"
+                class="block font-normal text-black rounded hover:text-[#F99F0A] active:text-[#F99F0A]"
+                >Teacher & Mentor</a
+              >
+            </li>
+            <li>
+              <a
+                href="#pricing"
+                class="block font-normal text-black rounded hover:text-[#F99F0A] active:text-[#F99F0A]"
+                >Pricing</a
+              >
+            </li>
+            <li>
+              <a
+                href="#testimonials"
+                class="block font-normal text-black rounded hover:text-[#F99F0A] active:text-[#F99F0A]"
+                >Testimonial</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="mt-16 px-4 md:px-16 lg:px-32 py-10 bg-[#F9FAFC]" id="home">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Section 1 -->
+        <div
+          class="md:mt-32 xl:mt-32 lg:mt-32 mt-16"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+        >
+          <p
+            class="uppercase text-[#0BA991] font-medium md:text-lg lg:text-lg xl:text-lg mb-2 text-base"
+          >
+            - E-Learning Platform
+          </p>
+          <h1
+            class="md:text-7xl lg:text-7xl xl:text-7xl text-4xl font-normal text-gray-800 mb-4"
+          >
+            Innovative
+            <span class="text-[#F99F0A] font-medium">Solutions</span> for
+            Lifelong Learning
+          </h1>
+          <p class="text-gray-600 md:max-w-md">
+            Unlock your potential with innovative tools and resources for the
+            digital era.
+          </p>
+          <button
+            class="mt-6 px-6 py-4 text-white bg-gradient-to-r to-[#F99F0A] from-[#EEC886] hover:to-[#EEC886] hover:from-[#F99F0A] rounded-lg"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            Get Started >
+          </button>
+          <div
+            class="flex items-center gap-3 mt-20"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="images">
+              <img src="/public/images/student.png" alt="" />
+            </div>
+            <p>
+              <span class="text-[#F99F0A] font-semibold">+10,000</span> Students
+              and Teachers helped
+            </p>
+          </div>
+        </div>
+        <div class="images-wrapper flex justify-center">
+          <div
+            class="images-1 z-10"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
+            <img src="/public/images/orang.png" alt="Placeholder Image" />
+          </div>
+          <div
+            class="images-2 absolute ml-[85px]"
+            data-aos="fade-left"
+            data-aos-delay="300"
+          >
+            <img src="/public/images/bg-orang.png" alt="Placeholder Image" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-16 px-4 md:px-16 lg:px-32 py-10 bg-[#F9FAFC]" id="about">
+      <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+        <!-- Section 2 -->
+        <div
+          class="order-2 md:order-1 flex justify-center"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+        >
+          <img src="/public/images/hero-section2.png" alt="Placeholder Image" />
+        </div>
+        <div
+          class="order-1 md:order-2"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        >
+          <p
+            class="uppercase text-[#0BA991] font-medium md:text-lg lg:text-lg xl:text-lg mb-2 text-base"
+          >
+            ABOUT US
+          </p>
+          <h1
+            class="md:text-4xl lg:text-4xl xl:text-4xl text-4xl font-normal text-gray-800 mb-4"
+          >
+            <span class="text-[#F99F0A] font-medium"
+              >Talented and educational, inspiring</span
+            >
+            growth and knowledge for all generations.
+          </h1>
+          <p
+            class="text-black opacity-40 md:max-w-xl"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            Academya empowers teachers with innovative tools and resources to
+            enhance teaching skills, improve digital literacy, and create
+            engaging learning experiences for students.
+          </p>
+          <button
+            class="mt-6 px-6 py-4 text-white bg-gradient-to-r to-[#F99F0A] from-[#EEC886] hover:to-[#EEC886] hover:from-[#F99F0A] rounded-lg"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            Learn More
+          </button>
+          <div
+            class="flex justify-center"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div class="images-2 absolute ml-[628px]">
+              <img src="/public/images/square2.png" alt="Placeholder Image" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="mt-16 px-4 md:px-16 lg:px-32 py-10 bg-[#F9FAFC]"
+      id="program"
+    >
+      <div class="container mx-auto text-center">
+        <!-- Title Center -->
+        <p
+          class="text-[#0BA991] text-lg font-medium"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+        >
+          PROGRAM
+        </p>
+        <h1
+          class="md:text-4xl lg:text-4xl xl:text-4xl text-4xl font-normal text-gray-800 mt-2"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          Learning Programs at
+          <span class="text-[#F99F0A]">Academya</span>
+        </h1>
+        <p
+          class="text-black opacity-40 mt-4"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-aos-duration="1000"
+        >
+          New generation supporters become more insightful
+        </p>
+
+        <!-- Cards Layout -->
+        <div
+          id="card-container"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-12"
+        >
+          <!-- Card 1 -->
+          <div
+            class="flex flex-col items-center justify-center bg-white rounded-lg p-6"
+            data-aos="zoom-in"
+            data-aos-duration="800"
+          >
+            <img
+              src="/public/images/icon-card (1).png"
+              alt="Program 1"
+              class="w-auto h-auto"
+            />
+            <p class="text-center text-gray-700">Online Courses</p>
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="flex flex-col items-center justify-center bg-white rounded-lg p-6"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+            data-aos-duration="800"
+          >
+            <img
+              src="/public/images/icon-card (2).png"
+              alt="Program 2"
+              class="w-auto h-auto"
+            />
+            <p class="text-center text-gray-700">Webinars</p>
+          </div>
+          <!-- Card 3 -->
+          <div
+            class="flex flex-col items-center justify-center bg-white rounded-lg p-6"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+            data-aos-duration="800"
+          >
+            <img
+              src="/public/images/icon-card (3).png"
+              alt="Program 3"
+              class="w-auto h-auto"
+            />
+            <p class="text-center text-gray-700">Workshops</p>
+          </div>
+          <!-- Card 4 -->
+          <div
+            class="flex flex-col items-center justify-center bg-white rounded-lg p-6"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+            data-aos-duration="800"
+          >
+            <img
+              src="/public/images/icon-card (4).png"
+              alt="Program 4"
+              class="w-auto h-auto"
+            />
+            <p class="text-center text-gray-700">Mentorship</p>
+          </div>
+          <!-- Card 5 -->
+          <div
+            class="flex flex-col items-center justify-center bg-white rounded-lg p-6 hidden md:flex"
+            data-aos="flip-up"
+            data-aos-delay="400"
+            data-aos-duration="800"
+          >
+            <img
+              src="/public/images/icon-card (5).png"
+              alt="Program 5"
+              class="w-auto h-auto"
+            />
+            <p class="text-center text-gray-700">Certification</p>
+          </div>
+          <!-- Card 6 -->
+          <div
+            class="flex flex-col items-center justify-center bg-white rounded-lg p-6 hidden md:flex"
+            data-aos="flip-up"
+            data-aos-delay="500"
+            data-aos-duration="800"
+          >
+            <img
+              src="/public/images/icon-card (6).png"
+              alt="Program 6"
+              class="w-auto h-auto"
+            />
+            <p class="text-center text-gray-700">Learning Pathways</p>
+          </div>
+          <!-- Card 7 -->
+          <div
+            class="flex flex-col items-center justify-center bg-white rounded-lg p-6 hidden md:flex"
+            data-aos="flip-up"
+            data-aos-delay="600"
+            data-aos-duration="800"
+          >
+            <img
+              src="/public/images/icon-card (7).png"
+              alt="Program 7"
+              class="w-auto h-auto"
+            />
+            <p class="text-center text-gray-700">Bootcamps</p>
+          </div>
+          <!-- Card 8 -->
+          <div
+            class="flex flex-col items-center justify-center bg-white rounded-lg p-6 hidden md:flex"
+            data-aos="flip-up"
+            data-aos-delay="700"
+            data-aos-duration="800"
+          >
+            <img
+              src="/public/images/icon-card (8).png"
+              alt="Program 8"
+              class="w-auto h-auto"
+            />
+            <p class="text-center text-gray-700">Community</p>
+          </div>
+        </div>
+
+        <!-- Show More Button (Only on Mobile) -->
+        <button
+          id="show-more-btn"
+          class="mt-8 px-6 py-2 bg-[#0BA991] text-white font-medium rounded hover:bg-[#08987c] block md:hidden"
+          data-aos="fade-up"
+          data-aos-delay="800"
+          data-aos-duration="1000"
+        >
+          Lihat Lebih
+        </button>
+      </div>
+    </section>
+
+    <section
+      class="mt-16 px-4 md:px-16 lg:px-32 py-10 bg-[#F9FAFC]"
+      id="mentor"
+    >
+      <div
+        class="title xl:justify-between items-center w-full text-center"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <!-- Title Center -->
+        <p class="text-[#0BA991] text-lg font-medium">TOP MENTOR</p>
+        <h1
+          class="md:text-4xl lg:text-4xl xl:text-4xl text-4xl font-normal text-gray-800 mt-2"
+        >
+          Teachers & Mentors
+          <span class="text-[#F99F0A]">Academya</span>
+        </h1>
+      </div>
+
+      <div
+        class="slider-card-wrapper overflow-hidden mt-16"
+        data-aos="fade-up"
+        data-aos-delay="200"
+        data-aos-duration="1000"
+      >
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <!-- Each Item -->
+            <div
+              class="swiper-slide h-auto p-6 flex items-center"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+            >
+              <div class="profile">
+                <img src="/public/images/mentor (1).png" alt="Michael Lee" />
+              </div>
+              <div class="text">
+                <span class="text-2xl">Michael Lee</span>
+                <p class="text-sm opacity-50">Online Teaching Strategies</p>
+              </div>
+            </div>
+            <div
+              class="swiper-slide h-auto p-6 flex items-center"
+              data-aos="fade-right"
+              data-aos-delay="100"
+              data-aos-duration="1000"
+            >
+              <div class="profile">
+                <img src="/public/images/mentor (2).png" alt="Christine" />
+              </div>
+              <div class="text">
+                <span class="text-2xl">Christine</span>
+                <p class="text-sm opacity-50">Leadership</p>
+              </div>
+            </div>
+            <div
+              class="swiper-slide h-auto p-6 flex items-center"
+              data-aos="fade-right"
+              data-aos-delay="200"
+              data-aos-duration="1000"
+            >
+              <div class="profile">
+                <img src="/public/images/mentor (3).png" alt="Hanna" />
+              </div>
+              <div class="text">
+                <span class="text-2xl">Hanna</span>
+                <p class="text-sm opacity-50">Digital Literacy</p>
+              </div>
+            </div>
+            <div class="swiper-slide h-auto p-6 flex items-center">
+              <div class="profile">
+                <img src="/public/images/mentor (1).png" alt="" />
+              </div>
+              <div class="text">
+                <span class="text-2xl">Jaeyuun</span>
+                <p class="text-sm opacity-50">Online Teaching Strategies</p>
+              </div>
+            </div>
+            <div class="swiper-slide h-auto p-6 flex items-center">
+              <div class="profile">
+                <img src="/public/images/mentor (2).png" alt="" />
+              </div>
+              <div class="text">
+                <span class="text-2xl">Jennie</span>
+                <p class="text-sm opacity-50">Leadership</p>
+              </div>
+            </div>
+            <div class="swiper-slide h-auto p-6 flex items-center">
+              <div class="profile">
+                <img src="/public/images/mentor (3).png" alt="" />
+              </div>
+              <div class="text">
+                <span class="text-2xl">Adeline</span>
+                <p class="text-sm opacity-50">Digital Literacy</p>
+              </div>
+            </div>
+            <!-- Add more mentors as needed -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="mt-16 px-4 md:px-16 lg:px-32 py-10 bg-[#F9FAFC]"
+      id="pricing"
+    >
+      <div
+        class="container mx-auto text-center"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <!-- Title Center -->
+        <p class="text-[#0BA991] text-lg font-medium">SUBSCRIPTION</p>
+        <h1
+          class="md:text-4xl lg:text-4xl xl:text-4xl text-4xl font-normal text-gray-800 mt-2"
+        >
+          Find Your
+          <span class="text-[#F99F0A]">Perfect Plan</span>
+        </h1>
+        <p class="text-black opacity-40 mt-4">
+          Find the perfect plan for your learning needs and access exclusive
+          resources.
+        </p>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div
+        class="container mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 gap-8"
+        data-aos="fade-up"
+        data-aos-delay="200"
+        data-aos-duration="1000"
+      >
+        <!-- Card 1 -->
+        <div
+          class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between"
+          data-aos="flip-left"
+          data-aos-duration="1000"
+        >
+          <!-- Icon -->
+          <img
+            src="/public/images/icon-pricing (1).png"
+            alt="Free Plan Icon"
+            class="w-12 h-12 mb-4"
+          />
+          <!-- Title -->
+          <p class="text-4xl font-medium">Free</p>
+          <!-- Subtitle -->
+          <p class="text-black opacity-40 mt-2">
+            Access basic courses and community support.
+          </p>
+          <!-- Price -->
+          <p class="text-5xl font-normal mt-4">$0</p>
+          <!-- Divider -->
+          <hr class="my-4 border-gray-300" />
+          <!-- Benefits List -->
+          <ul class="text-left space-y-3 mb-8">
+            <li class="flex items-center">
+              <span class="text-[#0BA991] mr-2">✔</span>
+              <span>Access to basic courses and resources</span>
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#0BA991] mr-2">✔</span>
+              <span>Limited access to webinars and workshops</span>
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#0BA991] mr-2">✔</span>
+              <span>Community support</span>
+            </li>
+          </ul>
+          <!-- Button -->
+          <button
+            class="px-6 py-2 border-2 w-full border-[#F99F0A] text-[#F99F0A] font-medium rounded hover:bg-[#F99F0A] hover:text-white transition"
+          >
+            Get Started
+          </button>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between"
+          data-aos="flip-up"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+        >
+          <!-- Icon -->
+          <img
+            src="/public/images/icon-pricing (2).png"
+            alt="Basic Plan Icon"
+            class="w-12 h-12 mb-4"
+          />
+          <!-- Title -->
+          <p class="text-4xl font-medium">Basic</p>
+          <!-- Subtitle -->
+          <p class="text-black opacity-40 mt-2">
+            Unlock full courses, exclusive webinars, and certificates.
+          </p>
+          <!-- Price -->
+          <div class="flex gap-2">
+            <p class="text-5xl font-normal mt-4">$20</p>
+            <p class="mt-auto opacity-50">per month</p>
+          </div>
+          <!-- Divider -->
+          <hr class="my-4 border-gray-300" />
+          <!-- Benefits List -->
+          <ul class="text-left space-y-3 mb-8">
+            <li class="flex items-center">
+              <span class="text-[#0BA991] mr-2">✔</span>
+              <span>Full access to all courses and learning pathways</span>
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#0BA991] mr-2">✔</span>
+              <span>Access to exclusive webinars and workshops</span>
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#0BA991] mr-2">✔</span>
+              <span>Certificate upon course completion</span>
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#0BA991] mr-2">✔</span>
+              <span>Access to peer collaboration and group learning</span>
+            </li>
+          </ul>
+          <!-- Button -->
+          <button
+            class="px-6 py-2 border-2 w-full border-[#F99F0A] text-[#F99F0A] font-medium rounded hover:bg-[#F99F0A] hover:text-white transition"
+          >
+            Get Started
+          </button>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between"
+          data-aos="flip-right"
+          data-aos-duration="1000"
+          data-aos-delay="400"
+        >
+          <!-- Icon -->
+          <img
+            src="/public/images/icon-pricing (3).png"
+            alt="Premium Plan Icon"
+            class="w-12 h-12 mb-4"
+          />
+          <!-- Title -->
+          <div class="flex items-center gap-2">
+            <p class="text-4xl font-medium">Premium</p>
+            <p
+              class="text-xs text-[#F99F0A] border border-[#F99F0A] px-2 py-1 rounded-md bg-[#F99F0A] bg-opacity-5"
+            >
+              Best Offer
+            </p>
+          </div>
+          <!-- Subtitle -->
+          <p class="text-black opacity-40 mt-2">
+            Unlock full courses, exclusive webinars, and certificates.
+          </p>
+          <!-- Price -->
+          <div class="flex gap-2">
+            <p class="text-5xl font-normal mt-4">$37</p>
+            <p class="mt-auto opacity-50">per month</p>
+          </div>
+          <!-- Divider -->
+          <hr class="my-4 border-gray-300" />
+          <!-- Benefits List -->
+          <ul class="text-left space-y-3 mb-8">
+            <li class="flex items-center">
+              <span class="text-[#0BA991] mr-2">✔</span>
+              <span>All Basic Plan benefits</span>
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#0BA991] mr-2">✔</span>
+              <span>Personalized mentorship sessions</span>
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#0BA991] mr-2">✔</span>
+              <span>Unlimited access to premium content</span>
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#0BA991] mr-2">✔</span>
+              <span>Exclusive community engagement initiatives</span>
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#0BA991] mr-2">✔</span>
+              <span>Advanced progress tracking and analytics</span>
+            </li>
+          </ul>
+          <!-- Button -->
+          <button
+            class="px-6 py-2 border-2 w-full border-[#F99F0A] text-[#F99F0A] font-medium rounded hover:bg-[#F99F0A] hover:text-white transition"
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="mt-16 px-4 md:px-16 lg:px-32 py-10 bg-[#F9FAFC]"
+      id="testimonials"
+    >
+      <div class="container mx-auto text-center">
+        <!-- Title Center -->
+        <p class="text-[#0BA991] text-lg font-medium" data-aos="fade-up">
+          TESTIMONIAL
+        </p>
+        <h1
+          class="md:text-4xl lg:text-4xl xl:text-4xl text-4xl font-normal text-gray-800 mt-2"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          What Our <span class="text-[#F99F0A]">Student</span> Say
+        </h1>
+        <p
+          class="text-black opacity-40 mt-4"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          See how Academya transforms students' learning experiences.
+        </p>
+      </div>
+      <div class="slider-card-container relative overflow-hidden mt-8">
+        <div class="slider-card flex transition-transform duration-300">
+          <!-- Card 1 -->
+          <div
+            class="item p-8 rounded-lg text-center flex-shrink-0 w-full"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div class="images mb-4">
+              <img
+                src="/public/images/card-slider (1).png"
+                alt=""
+                class="rounded-full w-24 h-24 mx-auto"
+              />
+            </div>
+            <h1 class="text-2xl font-bold">Yuuna Alexandria</h1>
+            <div class="stars-img flex items-center justify-center gap-2 mt-2">
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+            </div>
+            <p class="opacity-50 text-xl max-w-lg mx-auto mt-4">
+              Academya made learning so much easier and engaging. The courses
+              are practical and helped me improve my skills significantly!
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="item p-8 rounded-lg text-center flex-shrink-0 w-full"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="images mb-4">
+              <img
+                src="/public/images/card-slider (2).png"
+                alt=""
+                class="rounded-full w-24 h-24 mx-auto"
+              />
+            </div>
+            <h1 class="text-2xl font-bold">Michael Sanders</h1>
+            <div class="stars-img flex items-center justify-center gap-2 mt-2">
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+            </div>
+            <p class="opacity-50 text-xl max-w-lg mx-auto mt-4">
+              The interactive classes at Academya completely transformed my
+              learning journey. I feel much more confident in my abilities now!
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div
+            class="item p-8 rounded-lg text-center flex-shrink-0 w-full"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
+            <div class="images mb-4">
+              <img
+                src="/public/images/card-slider (3).png"
+                alt=""
+                class="rounded-full w-24 h-24 mx-auto"
+              />
+            </div>
+            <h1 class="text-2xl font-bold">Sofia Rodriguez</h1>
+            <div class="stars-img flex items-center justify-center gap-2 mt-2">
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+              <i class="ri-star-fill text-[#F99F0A] text-3xl"></i>
+            </div>
+            <p class="opacity-50 text-xl max-w-lg mx-auto mt-4">
+              Academya’s well-structured courses and dedicated instructors
+              helped me achieve my academic goals with ease.
+            </p>
+          </div>
+        </div>
+        <div
+          class="dots flex justify-center mt-4 space-x-2"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <!-- Dots -->
+          <span class="dot w-4 h-4 bg-[#F99F0A] rounded-full"></span>
+          <span class="dot w-4 h-4 bg-gray-300 rounded-full"></span>
+          <span class="dot w-4 h-4 bg-gray-300 rounded-full"></span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-[#0D172A]">
+      <div class="mt-16 px-4 md:px-16 lg:px-32 py-10 bg-[#F9FAFC]"">
+          <!-- grid start -->
+          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-10 xl:mt-40 lg:mt-40 md:mt-40 justify-between">
+              <!-- logo -->
+              <div class="col-span-full xl:col-span-2 lg:col-span-2 flex">
+                  <a href="./">
+                      <div class="items-center">
+                          <div class="flex">
+                              <img src="/public/images/logo.png" alt="">
+                          </div>
+                          <p class="gap-x-2 mt-5 max-w-sm text-[14px] text-black">Empowering education through innovation and digital learning.</p>
+                      </div>
+                  </a>
+              </div>
+              <!-- Quick Links -->
+              <div class="col-span-1">
+                  <h4 class="font-semibold text-black text-lg">Quick Links</h4>
+                  <ul class="mt-3 grid space-y-3">
+                      <li class="m-0">
+                          <a
+                              class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                              href=""
+                          >
+                            Home
+                          </a>
+                      </li>
+                      <li class="m-0">
+                          <a
+                              class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                              href=""
+                              target="_blank"
+                          >
+                          Discover
+                          </a>
+                      </li>
+                      <li class="m-0">
+                          <a
+                              class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                              href="./"
+                          >
+                          Program
+                          </a>
+                      </li>
+                      <li class="m-0">
+                          <a
+                              class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                              href="./"
+                          >
+                          Teacher & Mentor
+                          </a>
+                      </li>
+                      <li class="m-0">
+                          <a
+                              class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                              href="./"
+                          >
+                          Pricing
+                          </a>
+                      </li>
+                      <li class="m-0">
+                          <a
+                              class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                              href="./"
+                          >
+                          Testimonial
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+              <!-- Email Address -->
+              <div class="col-span-1">
+                  <h4 class="font-semibold text-black text-lg">Email Address</h4>
+                  <ul class="mt-3 grid space-y-3">
+                      <li class="m-0">
+                          <a
+                              class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                              href="./"
+                          >
+                          academya@gmail.com
+                          </a>
+                      </li>
+                  </ul>
+                  <ul class="mt-5 grid space-y-3">
+                    <li class="m-0">
+                        <a
+                            class="inline-flex gap-x-2 text-lg text-black hover:text-gray-200"
+                            href="./"
+                        >
+                        Resources Section
+                        </a>
+                    </li>
+                  </ul>
+                  <ul class="mt-3 grid space-y-3">
+                    <li class="m-0">
+                        <a
+                            class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                            href="./"
+                        >
+                        Blog
+                        </a>
+                    </li>
+                  </ul>
+                  <ul class="mt-3 grid space-y-3">
+                    <li class="m-0">
+                        <a
+                            class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                            href="./"
+                        >
+                        FAQs
+                        </a>
+                    </li>
+                  </ul>
+                  <ul class="mt-3 grid space-y-3">
+                    <li class="m-0">
+                        <a
+                            class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                            href="./"
+                        >
+                        Help Center
+                        </a>
+                    </li>
+                  </ul>
+              </div>
+              <!-- Address -->
+              <div class="col-span-1">
+                  <h4 class="font-semibold text-black text-lg">Address</h4>
+                  <ul class="mt-3 grid space-y-3">
+                      <li class="m-0">
+                          <a
+                              class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                              href="#"
+                          >
+                          Shellharbour Rd, Warilla NSW 2528, Australia
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <hr class="w-full mt-10 opacity-40">
+          <!-- grid end -->
+          <div class="mt-5 sm:mt-12 grid gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
+              
+              <!-- Social Brands -->
+              <div class="flex justify-between items-center">
+                  <p class="text-sm text-black">© 2024 FranchiseLink. Semua hak cipta dilindungi. </p>
+              </div>
+              <!-- End Social Brands -->
+              <div class="inline-flex gap-5">
+                  <p class="text-sm">
+                      <a
+                          href="./"
+                          target="_blank"
+                          class="text-black"
+                      >
+                      Instagram 
+                      </a>
+                  </p>
+                  <p class="text-sm">
+                      <a
+                          href="./"
+                          target="_blank"
+                          class="text-black"
+                      >
+                      Linkedin
+                      </a>
+                  </p>
+                  <p class="text-sm">
+                      <a
+                          href="./"
+                          target="_blank"
+                          class="text-black"
+                      >
+                      Facebook
+                      </a>
+                  </p>
+                  <p class="text-sm">
+                      <a
+                          href="./"
+                          target="_blank"
+                          class="text-black"
+                      >
+                      X
+                      </a>
+                  </p>
+              </div>
+          </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dist/js/script.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = document.querySelector(
+          '[data-collapse-toggle="navbar-sticky"]'
+        );
+        const menu = document.getElementById("navbar-sticky");
+
+        toggleButton.addEventListener("click", () => {
+          menu.classList.toggle("hidden");
+        });
+      });
+    </script>
+
+    <script>
+      document
+        .getElementById("show-more-btn")
+        .addEventListener("click", function () {
+          const hiddenCards = document.querySelectorAll(
+            "#card-container .hidden"
+          );
+          hiddenCards.forEach((card) => card.classList.remove("hidden"));
+          this.style.display = "none"; // Sembunyikan tombol setelah semua card tampil
+        });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const slider = document.querySelector(".slider-card");
+        const items = document.querySelectorAll(".item");
+        const dotsContainer = document.querySelector(".dots");
+
+        let currentIndex = 0;
+        const totalItems = items.length;
+
+        // Generate dots dynamically
+        for (let i = 0; i < totalItems; i++) {
+          const dot = document.createElement("button");
+          dot.className =
+            "dot w-3 h-3 bg-gray-400 rounded-full focus:outline-none";
+          if (i === 0) dot.classList.add("bg-[#0BA991]"); // Active dot
+          dotsContainer.appendChild(dot);
+        }
+        const dots = document.querySelectorAll(".dot");
+
+        // Update slider position and active dot
+        function updateSlider() {
+          slider.style.transform = translateX(-${currentIndex * 100}%);
+          dots.forEach((dot, index) => {
+            dot.classList.toggle("bg-[#0BA991]", index === currentIndex);
+            dot.classList.toggle("bg-gray-400", index !== currentIndex);
+          });
+        }
+
+        // Auto-scroll every 5 seconds
+        let autoScroll = setInterval(() => {
+          currentIndex = (currentIndex + 1) % totalItems;
+          updateSlider();
+        }, 3000);
+
+        // Handle dot click
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            currentIndex = index;
+            updateSlider();
+            clearInterval(autoScroll);
+            autoScroll = setInterval(() => {
+              currentIndex = (currentIndex + 1) % totalItems;
+              updateSlider();
+            }, 3000);
+          });
+        });
+
+        // Allow manual scrolling
+        slider.addEventListener("touchstart", () => clearInterval(autoScroll));
+        slider.addEventListener("touchend", () => {
+          autoScroll = setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateSlider();
+          }, 3000);
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const swiper = new Swiper(".swiper", {
+          slidesPerView: 3, // Default: 3 item untuk layar besar
+          spaceBetween: 0, // Jarak antar slide
+          loop: true, // Aktifkan looping
+          navigation: {
+            nextEl: ".swiper-button-next", // Tombol next
+            prevEl: ".swiper-button-prev", // Tombol prev
+          },
+          mousewheel: true, // Kontrol dengan mousewheel
+          grabCursor: true, // Tampilkan kursor grab
+          autoplay: {
+            delay: 3000, // Durasi 3 detik
+            disableOnInteraction: false, // Autoplay tetap aktif meskipun ada interaksi
+          },
+          breakpoints: {
+            // Untuk perangkat kecil (layar di bawah 768px)
+            0: {
+              slidesPerView: 1, // Tampilkan 1 item
+              spaceBetween: 10, // Jarak antar slide lebih kecil
+            },
+            // Untuk perangkat medium (layar 768px ke atas)
+            768: {
+              slidesPerView: 2, // Tampilkan 2 item
+              spaceBetween: 0,
+            },
+            // Untuk perangkat besar (layar 1024px ke atas)
+            1024: {
+              slidesPerView: 3, // Tampilkan 3 item
+              spaceBetween: 0,
+            },
+          },
+        });
+      });
+    </script>
+    <script>
+      // Fungsi untuk menetapkan kelas aktif berdasarkan URL hash
+      document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll("nav a");
+        const currentPath = window.location.hash;
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === currentPath) {
+            link.classList.add("active");
+          }
+        });
+
+        // Tambahkan event listener untuk memperbarui menu aktif saat scroll
+        const sections = document.querySelectorAll("section");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                navLinks.forEach((link) => {
+                  link.classList.remove("active");
+                  if (link.getAttribute("href") === #${entry.target.id}) {
+                    link.classList.add("active");
+                  }
+                });
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Academya</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="dist/css/style.css">
+    <link rel="icon" href="/images/dashboard/logo-dashboard.png" type="image/x-icon">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+    <link
+      rel="icon"
+      href="public/images/logo-sidebar.png"
+      type="image/x-icon"
+    />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="overflow-hidden bg-[#fff]">
+
+    <div class="wrapper">
+        <div class="flex text-center items-center justify-center min-h-screen">
+            <div class="left xl:w-5/12 xl:px-32 lg:px-32 px-10 items-center justify-center text-center">
+                <div class="logo justify-center flex ">
+                    <img src="/public/images/logo-login.png" alt="">
+                </div>
+                <div class="title mt-8 space-y-2">
+                    <h1 class="text-4xl font-semibold">Welcome Back!</h1>
+                    <p>Access your account and continue your learning journey with ease.</p>
+                </div>
+                
+                <div class="space-y-5 items-center mt-10"> 
+                    <div class="group-input">
+                        <label for="simple-search" class="sr-only">Email</label>
+                        <div class="relative w-full">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <i class="ri-mail-fill text-xl text-gray-600"></i>
+                            </div>
+                            <input type="text" id="simple-search" class="py-4 bg-gray-50 border border-gray-300 text-black text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-white dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" required />
+                        </div>
+                    </div>  
+                    <div class="group-input">
+                        <label for="role-dropdown" class="sr-only">Role</label>
+                        <div class="relative w-full">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <i class="ri-user-3-fill text-xl text-gray-600"></i>
+                            </div>
+                            <select id="role-dropdown" class="py-4 bg-gray-50 border border-gray-300 text-black text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-white dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="" disabled selected>Pilih Role</option>
+                                <option value="Student">
+                                🧑‍🎓 Student
+                                </option>
+                                <option value="Teacher">
+                                👨‍🏫 Teacher
+                                </option>
+                                <option value="Instructor">
+                                👩‍🏫 Instructor 
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="group-input">
+                        <label for="voice-search" class="sr-only">Password</label>
+                        <div class="relative w-full">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <i class="ri-git-repository-private-fill text-xl text-gray-600"></i>
+                            </div>
+                            <input type="text" id="voice-search" class="py-4 bg-gray-50 border border-gray-300 text-black text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-white dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Password" required />
+                            <button type="button" class="absolute inset-y-0 end-0 flex items-center pe-3">
+                                <i class="ri-eye-off-line text-xl text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="group-input flex justify-between">
+                        <div class="option flex items-center space-x-2 mb-2">
+                            <input type="checkbox" id="option1" name="description" class="checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <label for="option1" class="text-base text-gray-600">Remember me</label>
+                        </div>
+                        <a href="#" class="text-[#085cd7] font-medium">Forgot Password?</a>
+                    </div>
+                    <button id="sign-up-button" class="mt-5 w-full bg-[#F99F0A] text-white py-4 rounded-xl text-lg">Sign Up</button>
+                </div>
+                <div class="flex text-center items-center justify-center mt-5 gap-1">
+                    <p class="font-medium text-gray-600" >Have an account?</p>
+                    <a href="login.html" class="text-[#085cd7] font-medium">Sign In</a>
+                </div>
+            </div>  
+            <div class="right xl:w-7/12 px-2 rounded-l-3xl bg-[#F99F0A] h-[100vh] w-auto items-center justify-center text-center hidden xl:flex" style="background-image: url(/public/images/login-image-revisi.png); background-position: center; background-size: cover; background-repeat: no-repeat">
+                
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dist/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        document.querySelector('#sign-up-button').addEventListener('click', function (event) {
+          event.preventDefault(); // Mencegah reload halaman form default
+      
+          // Ambil value dari dropdown role
+          const role = document.querySelector('#role-dropdown').value;
+      
+          // Cek role dan arahkan ke halaman yang sesuai
+          if (role === 'Student' || role === 'Instructor') {
+            window.location.href = 'overview.html';
+          } else if (role === 'Teacher') {
+            window.location.href = 'overview-guru.html';
+          } else {
+            alert('Silakan pilih role sebelum melanjutkan.');
+          }
+        });
+      </script>
+      
+</body>
+
+</html>
