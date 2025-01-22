@@ -1,5 +1,6 @@
 // Start: Sidebar
 const sidebarToggle = document.querySelector('.sidebar-toggle');
+const sidebarArrow = document.querySelector('.sidebar-arrow');
 const sidebarOverlay = document.querySelector('.sidebar-overlay');
 const sidebarMenu = document.querySelector('.sidebar-menu');
 const main = document.querySelector('.main');
@@ -21,6 +22,13 @@ sidebarToggle.addEventListener('click', function (e) {
   sidebarOverlay.classList.toggle('hidden');
   sidebarMenu.classList.toggle('-translate-x-full');
 });
+
+// Toggle Sidebar saat tombol hamburger diklik
+sidebarArrow.addEventListener('click', function (e) {
+    e.preventDefault();
+    sidebarOverlay.classList.toggle('hidden');
+    sidebarMenu.classList.toggle('-translate-x-full');
+  });
 
 // Tutup Sidebar saat overlay diklik
 sidebarOverlay.addEventListener('click', function (e) {
