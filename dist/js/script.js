@@ -1,25 +1,36 @@
-// start: Sidebar
-const sidebarToggle = document.querySelector('.sidebar-toggle')
-const sidebarOverlay = document.querySelector('.sidebar-overlay')
-const sidebarMenu = document.querySelector('.sidebar-menu')
-const main = document.querySelector('.main')
-if(window.innerWidth < 768) {
-    main.classList.toggle('active')
-    sidebarOverlay.classList.toggle('hidden')
-    sidebarMenu.classList.toggle('-translate-x-full')
-}
+// Start: Sidebar
+const sidebarToggle = document.querySelector('.sidebar-toggle');
+const sidebarOverlay = document.querySelector('.sidebar-overlay');
+const sidebarMenu = document.querySelector('.sidebar-menu');
+const main = document.querySelector('.main');
+
+// Pastikan sidebar dan overlay tersembunyi saat halaman dimuat
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.innerWidth >= 768) {
+    main.classList.add('md:w-full', 'md:ml-0'); // Atur main ke full width
+  } else {
+    main.classList.remove('active'); // Untuk mobile, reset class
+    sidebarOverlay.classList.add('hidden');
+    sidebarMenu.classList.add('-translate-x-full');
+  }
+});
+
+// Toggle Sidebar saat tombol hamburger diklik
 sidebarToggle.addEventListener('click', function (e) {
-    e.preventDefault()
-    main.classList.toggle('active')
-    sidebarOverlay.classList.toggle('hidden')
-    sidebarMenu.classList.toggle('-translate-x-full')
-})
+  e.preventDefault();
+  sidebarOverlay.classList.toggle('hidden');
+  sidebarMenu.classList.toggle('-translate-x-full');
+});
+
+// Tutup Sidebar saat overlay diklik
 sidebarOverlay.addEventListener('click', function (e) {
-    e.preventDefault()
-    main.classList.add('active')
-    sidebarOverlay.classList.add('hidden')
-    sidebarMenu.classList.add('-translate-x-full')
-})
+  e.preventDefault();
+  main.classList.add('md:w-full');
+  main.classList.remove('md:ml-64');
+  sidebarOverlay.classList.add('hidden');
+  sidebarMenu.classList.add('-translate-x-full');
+});
+
 document.querySelectorAll('.sidebar-dropdown-toggle').forEach(function (item) {
     item.addEventListener('click', function (e) {
         e.preventDefault()
