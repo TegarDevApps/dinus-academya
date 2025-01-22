@@ -72,6 +72,7 @@
       <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
         <img src="/public/images/logo-sidebar.png" alt="" />
         <span class="text-lg font-bold text-white ml-3">Dashboard</span>
+        <i class="ri-arrow-left-s-line text text-white ms-10 sidebar-arrow"></i>
       </a>
       <ul class="mt-4">
         <li class="mb-1 group ">
@@ -600,12 +601,12 @@
               </div>
             </li>
             <!-- dropdown profile -->
-            <li class="dropdown">
-              <div class="group flex gap-2">
+            <li class="dropdown relative">
+              <div class="group flex items-center gap-2">
                 <button type="button" class="dropdown-toggle flex items-center">
                   <img
                     src="/public/images/profile.png"
-                    alt=""
+                    alt="Profile"
                     class="w-8 h-8 rounded block object-cover align-middle"
                   />
                 </button>
@@ -613,6 +614,17 @@
                   <h1 class="text-sm text-[#000000]">Ariiq Ammar</h1>
                   <p class="text-xs opacity-70">@ariiqammar90</p>
                 </div>
+              </div>
+              <!-- Dropdown Content -->
+              <div
+                class="dropdown-menu absolute right-0 mt-2 py-2 bg-white border rounded shadow-lg hidden w-40 z-50"
+              >
+                <a
+                  href="/index.html"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  Logout
+                </a>
               </div>
             </li>
           </div>
